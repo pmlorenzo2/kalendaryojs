@@ -1,0 +1,44 @@
+/* style.css */
+
+/** I. base style */
+
+html {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.container {
+    max-width: /*450px*/ 600px;
+    margin: 0 auto;
+}
+
+
+
+/** II. shared style */
+
+/* put code here */
+
+
+
+/** III. specific styes */
+
+/* put code here */
+
+
+
+/** IV. responsive styles */
+
+/* mobile view */
+@media screen and (max-width: 799px) {
+}
+
+/* desktop view */
+@media screen and (min-width: 800px) {
+}
