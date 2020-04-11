@@ -4,3 +4,156 @@
  *
  * This contains the specific styles for Index CSS
  */
+
+
+/**
+ * Zavin Datepicker
+ */
+
+/* Classes for Zavin Datepicker Trigger */
+.dropdown.zavin-datepicker > .dropdown-trigger {
+    justify-content: space-between;             /* Justify Content (General) */
+    -webkit-justify-content: space-between;     /* Justify Content support for Chrome and Safari */
+    -moz-justify-content: space-between;        /* Justify Content support for Mozilla */
+}
+.dropdown.zavin-datepicker > a.dropdown-trigger {
+    font-weight: normal;
+    text-align: left;
+    height: 36px;
+}
+.dropdown.zavin-datepicker > a.dropdown-trigger,
+.dropdown.zavin-datepicker > a.dropdown-trigger h6 {
+    font-size: 0.75rem;
+}
+
+/* Classes for Zavin Datepicker Content */
+.dropdown.zavin-datepicker > .dropdown-content {
+    min-width: 250px;
+    padding-top: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 12px;
+}
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header + table.zavin-datepicker-table {
+    margin-top: 12px;
+}
+
+/* Classes for Zavin Datepicker Content Header */
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header {
+    display: flex;                              /* Display Flex (General) */
+    display: -webkit-flex;                      /* Display Flex support for Safari */
+
+    align-items: center;                        /* Align Items (General) */
+    -webkit-align-items: center;                /* Align Items support for Safari */
+
+    justify-content: space-between;             /* Justify Content (General) */
+    -webkit-justify-content: space-between;     /* Justify Content support for Chrome and Safari */
+    -moz-justify-content: space-between;        /* Justify Content support for Mozilla */
+}
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header .button {
+    height: 24px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header > a.zavin-datepicker-period {
+    padding: 2px;
+    border: 1px dashed transparent;
+}
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header > a.zavin-datepicker-period:hover {
+    border-color: hsl(0, 0%, 50%);
+}
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header > .field > .control-combined > .control:nth-child(2) > .button {
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* Classes for Zavin Datepicker Content Selection */
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection {
+    display: flex;                              /* Display Flex (General) */
+    display: -webkit-flex;                      /* Display Flex support for Safari */
+
+    align-items: center;                        /* Align Items (General) */
+    -webkit-align-items: center;                /* Align Items support for Safari */
+
+    margin-top: -12px;
+    margin-left: -8px;
+    margin-right: -8px;
+    margin-bottom: -12px;
+}
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection a.zavin-datepicker-item {
+    color: #4d4d4d;
+    text-align: center;
+    display: block;
+    padding-top: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+}
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection a.zavin-datepicker-item:hover {
+    background-color: hsl(0, 0%, 80%);
+}
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection a.zavin-datepicker-item.is-active {
+    color: white;
+    font-weight: bold;
+    background-color: var(--primary-color);
+}
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-month,
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-year {
+    max-height: 200px;
+    overflow-y: auto;
+}
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-month {
+    width: 60%;
+}
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-month:not(:last-child) {
+    border-right: 1px solid hsl(0, 0%, 80%);
+}
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-year {
+    width: 40%;
+}
+
+/* Classes for Zavin Datepicker Content Table */
+.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table {
+    width: 100%;
+}
+.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table th,
+.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table td {
+    padding: 4px;
+}
+.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > thead > tr > th,
+.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > tbody > tr > td {
+    font-size: 0.75rem;
+    text-align: center;
+}
+.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > tbody > tr > td > a {
+    color: black;
+    width: 24px;
+    height: 24px;
+
+    display: inline-flex;                       /* Display Inline Flex (General) */
+    display: -webkit-inline-flex;               /* Display Inline Flex support for Safari */
+
+    align-items: center;                        /* Align Items (General) */
+    -webkit-align-items: center;                /* Align Items support for Safari */
+
+    justify-content: center;                    /* Justify Content (General) */
+    -webkit-justify-content: center;            /* Justify Content support for Chrome and Safari */
+    -moz-justify-content: center;               /* Justify Content support for Mozilla */
+
+    border-radius: 50%;
+}
+.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > tbody > tr > td > a:hover,
+.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > tbody > tr > td > a:active {
+    background-color: hsl(0, 0%, 90%);
+}
+.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > tbody > tr > td > a.is-today {
+    background-color: hsl(0, 0%, 80%);
+}
+.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > tbody > tr > td > a.is-active {
+    color: white;
+    font-weight: bold;
+
+    /* NOTE: Variable used came from Julia CSS */
+    background-color: var(--primary-color);
+}
