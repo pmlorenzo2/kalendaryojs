@@ -1,44 +1,36 @@
-/* style.css */
 
-/** I. base style */
+/**
+ * Style CSS
+ *
+ * This contains the general styles used in the whole app
+ */
 
-html {
+/* Import font from Google APIs */
+@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,700");
+
+
+/**
+ * HTML Body
+ */
+
+body {
+    font-family: "Nunito", sans-serif;
     -webkit-font-smoothing: antialiased;
-    box-sizing: border-box;
-    padding: 1rem;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
-}
-
-.container {
-    max-width: /*450px*/ 600px;
-    margin: 0 auto;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: white;
 }
 
 
+/**
+ * Julia - Layout - Container CSS
+ */
 
-/** II. shared style */
-
-/* put code here */
-
-
-
-/** III. specific styes */
-
-/* put code here */
-
-
-
-/** IV. responsive styles */
-
-/* mobile view */
-@media screen and (max-width: 799px) {
-}
-
-/* desktop view */
-@media screen and (min-width: 800px) {
+/* Container on screens that has a width >= 900px */
+@media screen and (min-width: 900px) {
+    .container {
+        width: 850px;
+        max-width: 850px;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
 }
