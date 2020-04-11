@@ -29,6 +29,9 @@ const render = async (param) => {
     //- VALIDATE: [param.label] - Optional
     if (param.label && typeof param.label !== "string") throw new Error("param.label must be a string");
 
+    //- VALIDATE: [param.icon] - Optional
+    if (param.icon && typeof param.icon !== "string") throw new Error("param.icon must be a string");
+
     // Use date today as initial for current values
     const today = new Date();
     currentYear = today.getFullYear();
@@ -42,16 +45,34 @@ const render = async (param) => {
     let labelElement;
     if (param.label) labelElement = `<h6 class="has-text-weight-bold">${param.label}</h6>`;
 
+    let iconElement;
+    if (param.icon) {
+        iconElement = `
+            <figure class="image is-24x24 has-margin-left-4">
+                <img src="${param.icon}">
+            </figure>
+        `;
+    }
+
     document.getElementById(param.id).innerHTML = `
         <div class="dropdown zavin-datepicker" id="${param.id}Datepicker">
             <a href="javascript:void(0)" class="dropdown-trigger" id="${param.id}DatepickerTrigger">
-                <div class="has-margin-right-4">
+                <div>
                     ${labelElement}
                     <p id="${param.id}DatepickerDate">${months[currentMonth].substring(0, 3)}. ${currentDate}, ${currentYear}</p>
                 </div>
-                <figure class="image is-24x24"></figure>
+                ${iconElement}
             </a>
-            <div class="dropdown-content"></div>
+            <div class="dropdown-content">
+                <section class="zavin-datepicker-header" id="${param.id}DatepickerHeader">
+                    <a href="javascript:void(0)" class="zavin-datepicker-period" id="${param.id}DatepickerPeriod">
+                        <h6 class="has-text-weight-bold" id="${param.id}DatepickerMonthYear">${months[currentMonth]} ${currentYear}</h6>
+                    </a>
+                    <div class="field"></div>
+                </section>
+                <section class="zavin-datepicker-selection" id="${param.id}DatepickerSelection"></section>
+                <section class="zavin-datepicker-table" id="${param.id}DatepickerTable"></section>
+            </div>
         </div>
     `;
 
