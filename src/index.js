@@ -32,6 +32,12 @@ const render = async (param) => {
     //- VALIDATE: [param.pickerIcon] - Optional
     if (param.pickerIcon && typeof param.pickerIcon !== "string") throw new Error("param.pickerIcon must be a string");
 
+    //- VALIDATE: [param.prevIcon] - Optional
+    if (param.prevIcon && typeof param.prevIcon !== "string") throw new Error("param.prevIcon must be a string");
+
+    //- VALIDATE: [param.nextIcon] - Optional
+    if (param.nextIcon && typeof param.nextIcon !== "string") throw new Error("param.nextIcon must be a string");
+
     // Use date today as initial for current values
     const today = new Date();
     currentYear = today.getFullYear();
@@ -45,12 +51,38 @@ const render = async (param) => {
     let labelElement;
     if (param.label) labelElement = `<h6 class="has-text-weight-bold">${param.label}</h6>`;
 
-    let iconElement;
+    let pickerIconElement;
     if (param.pickerIcon) {
-        iconElement = `
+        pickerIconElement = `
             <figure class="image is-24x24 has-margin-left-4">
                 <img src="${param.pickerIcon}">
             </figure>
+        `;
+    }
+
+    let prevOptionElement;
+    if (param.prevIcon) {
+        prevOptionElement = `
+            <div class="control">
+                <button class="button" type="button" id="${param.id}DatepickerPrev">
+                    <figure class="image is-16x16">
+                        <img src="${param.prevIcon}">
+                    </figure>
+                </button>
+            </div>
+        `;
+    }
+
+    let nextOptionElement;
+    if (param.nextIcon) {
+        nextOptionElement = `
+            <div class="control">
+                <button class="button" type="button" id="${param.id}DatepickerNext">
+                    <figure class="image is-16x16">
+                        <img src="${param.nextIcon}">
+                    </figure>
+                </button>
+            </div>
         `;
     }
 
@@ -61,7 +93,7 @@ const render = async (param) => {
                     ${labelElement}
                     <p id="${param.id}DatepickerDate">${months[currentMonth].substring(0, 3)}. ${currentDate}, ${currentYear}</p>
                 </div>
-                ${iconElement}
+                ${pickerIconElement}
             </a>
             <div class="dropdown-content">
                 <section class="zavin-datepicker-header" id="${param.id}DatepickerHeader">
@@ -70,11 +102,11 @@ const render = async (param) => {
                     </a>
                     <div class="field">
                         <div class="control-combined">
+                            ${prevOptionElement}
                             <div class="control">
-                                <button class="button" type="button" id="${param.id}DatepickerPrev"></button>
+                                <button class="button" type="button" id="${param.id}DatepickerToday">Today</button>
                             </div>
-                            <div class="control"></div>
-                            <div class="control"></div>
+                            ${nextOptionElement}
                         </div>
                     </div>
                 </section>
