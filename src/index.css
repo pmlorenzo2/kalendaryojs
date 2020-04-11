@@ -55,17 +55,17 @@
     padding-left: 4px;
     padding-right: 4px;
 }
+.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header .button.zavin-datepicker-today {
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
 .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header > a.zavin-datepicker-period {
     padding: 2px;
     border: 1px dashed transparent;
 }
 .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header > a.zavin-datepicker-period:hover {
     border-color: hsl(0, 0%, 50%);
-}
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header > .field > .control-combined > .control:nth-child(2) > .button {
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: uppercase;
 }
 
 /* Classes for Zavin Datepicker Content Selection */

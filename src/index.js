@@ -50,6 +50,7 @@ const render = async (param) => {
     // ---------------------------------------
     let labelElement;
     if (param.label) labelElement = `<h6 class="has-text-weight-bold">${param.label}</h6>`;
+    else labelElement = "";
 
     let pickerIconElement;
     if (param.pickerIcon) {
@@ -58,6 +59,8 @@ const render = async (param) => {
                 <img src="${param.pickerIcon}">
             </figure>
         `;
+    } else {
+        pickerIconElement = "";
     }
 
     let prevOptionElement;
@@ -71,6 +74,8 @@ const render = async (param) => {
                 </button>
             </div>
         `;
+    } else {
+        prevOptionElement = "";
     }
 
     let nextOptionElement;
@@ -84,10 +89,12 @@ const render = async (param) => {
                 </button>
             </div>
         `;
+    } else {
+        nextOptionElement = "";
     }
 
     document.getElementById(param.id).innerHTML = `
-        <div class="dropdown zavin-datepicker" id="${param.id}Datepicker">
+        <div class="dropdown zavin-datepicker is-active" id="${param.id}Datepicker">
             <a href="javascript:void(0)" class="dropdown-trigger" id="${param.id}DatepickerTrigger">
                 <div>
                     ${labelElement}
@@ -104,15 +111,24 @@ const render = async (param) => {
                         <div class="control-combined">
                             ${prevOptionElement}
                             <div class="control">
-                                <button class="button" type="button" id="${param.id}DatepickerToday">Today</button>
+                                <button class="button zavin-datepicker-today" type="button" id="${param.id}DatepickerToday">Today</button>
                             </div>
                             ${nextOptionElement}
                         </div>
                     </div>
                 </section>
-                <section class="zavin-datepicker-selection" id="${param.id}DatepickerSelection"></section>
-                <section class="zavin-datepicker-table" id="${param.id}DatepickerTable"></section>
+                <section class="zavin-datepicker-selection" id="${param.id}DatepickerSelection">
+                    <div class="zavin-datepicker-month" id="${param.id}DatepickerMonth"></div>
+                    <div class="zavin-datepicker-year" id="${param.id}DatepickerYear"></div>
+                </section>
+                <table class="zavin-datepicker-table" id="${param.id}DatepickerTable">
+                    <thead>
+                        <tr id="${param.id}DatepickerDaysHeader"></tr>
+                    </thead>
+                    <tbody id="${param.id}DatepickerDaysBody"></tbody>
+                </table>
             </div>
+            <input type="hidden" id="${param.id}DatepickerValue">
         </div>
     `;
 
