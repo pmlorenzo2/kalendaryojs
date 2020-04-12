@@ -290,6 +290,9 @@ const render = async (param) => {
                 // Update current month
                 currentMonth = month;
 
+                // Set date to first date of the month
+                currentDate = 1;
+
                 // Remove active indicator of previously selected element
                 const activeDatepickerMonthItem = selectionMonthElement.querySelector("a.zavin-datepicker-item.is-active");
                 activeDatepickerMonthItem.classList.remove("is-active");
@@ -308,8 +311,55 @@ const render = async (param) => {
     };
 
     // EVENT: Datepicker Year is clicked
+    selectionYearElement.onclick = (event) => {
+        if (event.target && event.target.tagName === "A") {
+            const datepickerYearItem = event.target;
+
+            // Retrieve year from the selected element's text
+            const year = parseInt(datepickerYearItem.textContent);
+
+            // If selected element is not active and doesn't match the current year then proceed
+            if (!datepickerYearItem.classList.contains("is-active") && year !== currentYear) {
+
+                // Update current year
+                currentYear = year;
+
+                // Set date to first date of the month
+                currentDate = 1;
+
+                // Remove active indicator of previously selected element
+                const activeDatepickerYearItem = selectionYearElement.querySelector("a.zavin-datepicker-item.is-active");
+                activeDatepickerYearItem.classList.remove("is-active");
+
+                // Mark the newly selected element as active
+                datepickerYearItem.classList.add("is-active");
+
+                monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
+                generateDays(currentYear, currentMonth, daysBodyElement);
+            }
+
+            headerElement.classList.remove("is-hidden");
+            selectionElement.classList.add("is-hidden");
+            tableElement.classList.remove("is-hidden");
+        }
+    };
 
     // EVENT: Datepicker Year is scrolled
+    selectionYearElement.onscroll = () => {
+
+        // If Datepicker Year is scrolled to its max top then generate previous years,
+        // Else If Datepicker Year is scrolled to its max bottom then generate next years
+        if (selectionYearElement.scrollTop === 0) {
+            generateYears(selection_year_count, false, selectionYearElement);
+
+            // Align scroll to the last item scrolled at by the user
+            const datepickerYearItem = selectionYearElement.querySelector("a.zavin-datepicker-item");
+            selectionYearElement.scrollTop += (datepickerYearItem.offsetHeight * selection_year_count);
+
+        } else if ((selectionYearElement.scrollTop + selectionYearElement.offsetHeight) === selectionYearElement.scrollHeight) {
+            generateYears(selection_year_count, true, selectionYearElement);
+        }
+    };
 };
 
 
