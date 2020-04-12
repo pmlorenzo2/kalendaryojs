@@ -193,9 +193,6 @@ const render = async (param) => {
     // Generate days based on the initial values provided
     generateDays(currentYear, currentMonth, daysBodyElement);
 
-    // Update Datepicker Value
-    valueElement.value = generateValue(currentYear, currentMonth, currentDate);
-
 
     // ---------------------------------------
     // 🦋. Event handlers here
@@ -215,6 +212,69 @@ const render = async (param) => {
         const activeSelectionYearItem = selectionYearElement.querySelector("a.zavin-datepicker-item.is-active");
         selectionYearElement.scrollTop = activeSelectionYearItem.offsetTop;
     };
+
+    // EVENT: Datepicker Prev is clicked
+    // NOTE: Include this event only if [param.prevIcon] is defined
+    if (param.prevIcon) {
+        document.getElementById(`${param.id}DatepickerPrev`).onclick = () => {
+
+            // If current month is not January then show previous month,
+            // Else show December of previous year
+            if (currentMonth > 0) {
+                currentMonth -= 1;
+            } else {
+                currentMonth = 11;
+                currentYear -= 1;
+            }
+
+            // Set date to first date of the month
+            currentDate = 1;
+
+            monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
+            refreshSelectionMonthActive(currentMonth, selectionMonthElement);
+            refreshSelectionYearActive(currentYear, selectionYearElement);
+            generateDays(currentYear, currentMonth, daysBodyElement);
+        };
+    }
+
+    // EVENT: Datepicker Today is clicked
+    document.getElementById(`${param.id}DatepickerToday`).onclick = () => {
+
+        // Set to current date
+        const today = new Date();
+        currentYear = today.getFullYear();
+        currentMonth = today.getMonth();
+        currentDate = today.getDate();
+
+        monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
+        refreshSelectionMonthActive(currentMonth, selectionMonthElement);
+        refreshSelectionYearActive(currentYear, selectionYearElement);
+        generateDays(currentYear, currentMonth, daysBodyElement);
+    };
+
+    // EVENT: Datepicker Next is clicked
+    // NOTE: Include this event only if [param.nextIcon] is defined
+    if (param.nextIcon) {
+        document.getElementById(`${param.id}DatepickerNext`).onclick = () => {
+
+            // If current month is not December then show next month,
+            // Else show January of next year
+            if (currentMonth < 11) {
+                currentMonth += 1;
+            } else {
+                currentMonth = 0;
+                currentYear += 1;
+            }
+
+            // Set date to first date of the month
+            currentDate = 1;
+
+            monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
+            refreshSelectionMonthActive(currentMonth, selectionMonthElement);
+            refreshSelectionYearActive(currentYear, selectionYearElement);
+            generateDays(currentYear, currentMonth, daysBodyElement);
+        };
+    }
 };
 
 
@@ -344,4 +404,54 @@ const generateValue = (year, month, date) => {
 
     let value = `${year}-${valueMonth}-${valueDate}`;
     return value;
+};
+
+
+/**
+ * Refresh Datepicker Month to see the new active item
+ *
+ * @param {Number} month
+ * @param {Element} datepickerMonth
+ */
+const refreshSelectionMonthActive = (month, datepickerMonth) => {
+
+    // Remove active indicator of previously selected month
+    const activeSelectionMonthItem = datepickerMonth.querySelector("a.zavin-datepicker-item.is-active");
+    activeSelectionMonthItem.classList.remove("is-active");
+
+    // Loop until we find the element that matches the current month and mark it as active
+    const datepickerMonthItems = datepickerMonth.querySelectorAll("a.zavin-datepicker-item");
+    for (let i = 0; i < datepickerMonthItems.length; i++) {
+        const datepickerMonthItem = datepickerMonthItems[i];
+        const valueMonth = months.indexOf(datepickerMonthItem.textContent);
+        if (valueMonth === month) {
+            datepickerMonthItem.classList.add("is-active");
+            break;
+        }
+    }
+};
+
+
+/**
+ * Refresh Datepicker Year to see the new active item
+ *
+ * @param {Number} year
+ * @param {Element} datepickerYear
+ */
+const refreshSelectionYearActive = (year, datepickerYear) => {
+
+    // Remove active indicator of previously selected year
+    const activeSelectionYearItem = datepickerYear.querySelector("a.zavin-datepicker-item.is-active");
+    activeSelectionYearItem.classList.remove("is-active");
+
+    // Loop until we find the element that matches the current year and mark it as active
+    const datepickerYearItems = datepickerYear.querySelectorAll("a.zavin-datepicker-item");
+    for (let i = 0; i < datepickerYearItems.length; i++) {
+        const datepickerYearItem = datepickerYearItems[i];
+        const valueYear = parseInt(datepickerYearItem.textContent);
+        if (valueYear === year) {
+            datepickerYearItem.classList.add("is-active");
+            break;
+        }
+    }
 };
