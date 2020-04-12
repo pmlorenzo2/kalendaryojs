@@ -360,6 +360,33 @@ const render = async (param) => {
             generateYears(selection_year_count, true, selectionYearElement);
         }
     };
+
+    // EVENT: Datepicker Days Body
+    daysBodyElement.onclick = (event) => {
+        if (event.target && event.target.tagName === "A") {
+            const datepickerDateItem = event.target;
+
+            // Retrieve date from the selected element's text
+            const date = parseInt(datepickerDateItem.textContent);
+
+            // If selected element is not active and doesn't match the current date then proceed
+            if (!datepickerDateItem.classList.contains("is-active") && date !== currentDate) {
+
+                // Update current date
+                currentDate = date;
+
+                // Remove active indicator of previously selected element
+                const activeDatepickerDateItem = daysBodyElement.querySelector("a.is-active");
+                if (activeDatepickerDateItem) activeDatepickerDateItem.classList.remove("is-active");
+
+                // Mark the newly selected element as active
+                datepickerDateItem.classList.add("is-active");
+
+                dateElement.textContent = `${months[currentMonth].substring(0, 3)}. ${currentDate}, ${currentYear}`;
+                valueElement.value = generateValue(currentYear, currentMonth, currentDate);
+            }
+        }
+    };
 };
 
 
