@@ -7,16 +7,20 @@
 const months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
 const days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
 
-// Define number of items to be generated in selection year
-const selection_year_count = 10;
 
+/**
+ * [description]
+ */
 const render = async (param) => {
+
+    // Define number of items to be generated in selection year
+    const selection_year_count = 10;
 
     // Store current values here
     let currentYear, currentMonth, currentDate;
 
     // Store global elements here
-    let dateElement, monthYearElement, selectionMonthElement;
+    let dateElement, monthYearElement, selectionMonthElement, selectionYearElement;
 
 
     // ---------------------------------------
@@ -147,6 +151,7 @@ const render = async (param) => {
     dateElement = document.getElementById(`${param.id}DatepickerDate`);
     monthYearElement = document.getElementById(`${param.id}DatepickerMonthYear`);
     selectionMonthElement = document.getElementById(`${param.id}DatepickerMonth`);
+    selectionYearElement = document.getElementById(`${param.id}DatepickerYear`);
 
 
     // ---------------------------------------
@@ -167,6 +172,11 @@ const render = async (param) => {
         selectionMonthElement.innerHTML += `<a href="javascript:void(0)" class="${elementClass}">${months[i]}</a>`;
     }
 
+    // Update selection of Datepicker Year
+    selectionYearElement.innerHTML = `<a href="javascript:void(0)" class="zavin-datepicker-item is-active">${currentYear}</a>`;
+    generateYears(selection_year_count, false, selectionYearElement);
+    generateYears(selection_year_count, true, selectionYearElement);
+
 
     // ---------------------------------------
     // 🦋. Event handlers here
@@ -176,3 +186,53 @@ const render = async (param) => {
 
 // Expose
 export default { render };
+
+
+/**
+ * Generate the years forward or backward from the given year
+ *
+ * @param {Number} [count]
+ * @param {Boolean} [isNext]
+ * @param {Element} [datepickerYear]
+ */
+const generateYears = (count, isNext, datepickerYear) => {
+
+    // Retrieve selection of years
+    const datepickerYearItems = datepickerYear.querySelectorAll("a.zavin-datepicker-item");
+
+    // Extract year from selection
+    let datepickerYearItem, year;
+    if (isNext) datepickerYearItem = datepickerYearItems[datepickerYearItems.length - 1];
+    else datepickerYearItem = datepickerYearItems[0];
+    year = parseInt(datepickerYearItem.textContent);
+
+    // Generate years forward or backward depending on the params set
+    const years = [];
+    for (let i = 0; i < count; i++) {
+        if (isNext) {
+            years.push(year += 1);
+        } else {
+            if (year !== 0) years.push(year -= 1);
+            else break;
+        }
+    }
+
+    // Loop and create Calendar Picker Item for each year
+    for (let i = 0; i < years.length; i++) {
+        const anchor = document.createElement("a");
+        anchor.href = "javascript:void(0)";
+        anchor.classList = "calendar-picker-item";
+        anchor.textContent = years[i];
+
+        // Identify where to place the element
+        if (isNext) datepickerYear.append(anchor);
+        else datepickerYear.prepend(anchor);
+    }
+};
+
+
+/**
+ * [description]
+ */
+const generateDays = () => {
+};
