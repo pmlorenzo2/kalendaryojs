@@ -20,7 +20,7 @@ const render = async (param) => {
     let currentYear, currentMonth, currentDate;
 
     // Store global elements here
-    let dateElement, monthYearElement, selectionMonthElement, selectionYearElement;
+    let dateElement, headerElement, monthYearElement, selectionElement, selectionMonthElement, selectionYearElement, tableElement, daysBodyElement, valueElement;
 
 
     // ---------------------------------------
@@ -150,8 +150,12 @@ const render = async (param) => {
     // Retrieve global elements
     dateElement = document.getElementById(`${param.id}DatepickerDate`);
     monthYearElement = document.getElementById(`${param.id}DatepickerMonthYear`);
+    selectionElement = document.getElementById(`${param.id}DatepickerSelection`);
     selectionMonthElement = document.getElementById(`${param.id}DatepickerMonth`);
     selectionYearElement = document.getElementById(`${param.id}DatepickerYear`);
+    tableElement = document.getElementById(`${param.id}DatepickerTable`);
+    daysBodyElement = document.getElementById(`${param.id}DatepickerDaysBody`);
+    valueElement = document.getElementById(`${param.id}DatepickerValue`);
 
 
     // ---------------------------------------
@@ -177,10 +181,28 @@ const render = async (param) => {
     generateYears(selection_year_count, false, selectionYearElement);
     generateYears(selection_year_count, true, selectionYearElement);
 
+    // Update header for days in a week
+    const daysHeaderElement = document.getElementById(`${param.id}DatepickerDaysHeader`);
+    daysHeaderElement.innerHTML = "";
+    for (let i = 0; i < days.length; i++) {
+        const day = days[i];
+        daysHeaderElement.innerHTML += `<th>${day.substring(0, 3)}</th>`;
+    }
+
+    // Generate days based on the initial values provided
+    generateDays(currentYear, currentMonth, daysBodyElement);
+
+    // Update Datepicker Value
+    valueElement.value = generateValue(currentYear, currentMonth, currentDate);
+
 
     // ---------------------------------------
     // 🦋. Event handlers here
     // ---------------------------------------
+
+    // EVENT: Datepicker Period is clicked
+    document.getElementById(`${param.id}DatepickerPeriod`).onclick = () => {
+    };
 };
 
 
@@ -191,9 +213,9 @@ export default { render };
 /**
  * Generate the years forward or backward from the given year
  *
- * @param {Number} [count]
- * @param {Boolean} [isNext]
- * @param {Element} [datepickerYear]
+ * @param {Number} count
+ * @param {Boolean} isNext
+ * @param {Element} datepickerYear
  */
 const generateYears = (count, isNext, datepickerYear) => {
 
@@ -232,7 +254,82 @@ const generateYears = (count, isNext, datepickerYear) => {
 
 
 /**
- * [description]
+ * Generate the days of a given month and year in calendar format
+ *
+ * @param {Number} year
+ * @param {Number} month
+ * @param {Element} tableBody
  */
-const generateDays = () => {
+const generateDays = (year, month, tableBody) => {
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+
+    // Get date today for reference purposes
+    const today = new Date();
+
+    // Sometimes the first day of the month doesn't start at Sunday
+    let offset = firstDay.getDay();
+
+    // Render the days in calendar format
+    let dayCount = 1;
+    tableBody.innerHTML = "";
+    for (let i = 0; i < 5; i++) {
+        const tableRow = document.createElement("tr");
+        for (let j = 0; j < 7; j++) {
+            const tableData = document.createElement("td");
+
+            // If the first count starts at Sunday then simply render it,
+            // Else keep adding spacing until it aligns on its designated day
+            if (offset === 0) {
+                const anchor = document.createElement("a");
+                anchor.href = "javascript:void(0)";
+                anchor.textContent = dayCount;
+
+                // Mark anchor as "today" if provided date matches the date today
+                if (year === today.getFullYear() && month === today.getMonth() && dayCount === today.getDate()) anchor.classList.add("is-today");
+
+                tableData.appendChild(anchor);
+                tableRow.appendChild(tableData);
+
+                // If we've reached the last date stop the count,
+                // Else keep incrementing the count
+                if (dayCount === lastDay.getDate()) break;
+                else dayCount++;
+
+            } else {
+                tableRow.appendChild(tableData);
+                offset--;
+            }
+        }
+        tableBody.appendChild(tableRow);
+    }
+};
+
+
+/**
+ * Generate datepicker value given the year, month, and date
+ *
+ * @param {Number} year
+ * @param {Number} month
+ * @param {Number} date
+ *
+ * @return {String} value
+ */
+const generateValue = (year, month, date) => {
+    const datepickerMonth = month + 1; // Increment by 1 since this is an index
+
+    // Extract value for month
+    // NOTE: Month must be double digit
+    let valueMonth;
+    if (datepickerMonth < 10) valueMonth = "0" + datepickerMonth;
+    else valueMonth = datepickerMonth;
+
+    // Extract value for date
+    // NOTE: Date must be double digit
+    let valueDate;
+    if (date < 10) valueDate = "0" + date;
+    else valueDate = date;
+
+    let value = `${year}-${valueMonth}-${valueDate}`;
+    return value;
 };
