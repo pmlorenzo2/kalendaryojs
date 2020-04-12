@@ -20,7 +20,7 @@ const render = async (param) => {
     let currentYear, currentMonth, currentDate;
 
     // Store global elements here
-    let dateElement, headerElement, monthYearElement, selectionElement, selectionMonthElement, selectionYearElement, tableElement, daysBodyElement, valueElement;
+    let datepickerElement, dateElement, headerElement, monthYearElement, selectionElement, selectionMonthElement, selectionYearElement, tableElement, daysBodyElement, valueElement;
 
 
     // ---------------------------------------
@@ -109,7 +109,7 @@ const render = async (param) => {
 
     // Retrieve and inject datepicker code to element
     document.getElementById(param.id).innerHTML = `
-        <div class="dropdown zavin-datepicker is-active" id="${param.id}Datepicker">
+        <div class="dropdown zavin-datepicker" id="${param.id}Datepicker">
             <a href="javascript:void(0)" class="dropdown-trigger" id="${param.id}DatepickerTrigger">
                 <div>
                     ${labelElement}
@@ -117,7 +117,7 @@ const render = async (param) => {
                 </div>
                 ${pickerIconElement}
             </a>
-            <div class="dropdown-content">
+            <div class="dropdown-content" id="${param.id}DatepickerContent">
                 <section class="zavin-datepicker-header" id="${param.id}DatepickerHeader">
                     <a href="javascript:void(0)" class="zavin-datepicker-period" id="${param.id}DatepickerPeriod">
                         <h6 class="has-text-weight-bold" id="${param.id}DatepickerMonthYear"></h6>
@@ -148,6 +148,7 @@ const render = async (param) => {
     `;
 
     // Retrieve global elements
+    datepickerElement = document.getElementById(`${param.id}Datepicker`);
     dateElement = document.getElementById(`${param.id}DatepickerDate`);
     headerElement = document.getElementById(`${param.id}DatepickerHeader`);
     monthYearElement = document.getElementById(`${param.id}DatepickerMonthYear`);
@@ -197,6 +198,18 @@ const render = async (param) => {
     // ---------------------------------------
     // 🦋. Event handlers here
     // ---------------------------------------
+
+    // EVENT: Datepicker is clicked
+    datepickerElement.onclick = (event) => {
+        event.stopPropagation();
+        if (!datepickerElement.classList.contains("is-active")) datepickerElement.classList.add("is-active");
+        else datepickerElement.classList.remove("is-active");
+    };
+
+    // EVENT: Datepicker Content is clicked
+    document.getElementById(`${param.id}DatepickerContent`).onclick = (event) => {
+        event.stopPropagation();
+    };
 
     // EVENT: Datepicker Period is clicked
     document.getElementById(`${param.id}DatepickerPeriod`).onclick = () => {
@@ -369,8 +382,8 @@ const render = async (param) => {
             // Retrieve date from the selected element's text
             const date = parseInt(datepickerDateItem.textContent);
 
-            // If selected element is not active and doesn't match the current date then proceed
-            if (!datepickerDateItem.classList.contains("is-active") && date !== currentDate) {
+            // If selected element is not active then proceed
+            if (!datepickerDateItem.classList.contains("is-active")) {
 
                 // Update current date
                 currentDate = date;
