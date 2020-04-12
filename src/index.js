@@ -11,7 +11,12 @@ const days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
 const selection_year_count = 10;
 
 const render = async (param) => {
+
+    // Store current values here
     let currentYear, currentMonth, currentDate;
+
+    // Store global elements here
+    let dateElement, monthYearElement, selectionMonthElement;
 
 
     // ---------------------------------------
@@ -48,10 +53,13 @@ const render = async (param) => {
     // ---------------------------------------
     // 🐇. Render datepicker here
     // ---------------------------------------
+
+    // Define label element
     let labelElement;
     if (param.label) labelElement = `<h6 class="has-text-weight-bold">${param.label}</h6>`;
     else labelElement = "";
 
+    // Define picker icon element
     let pickerIconElement;
     if (param.pickerIcon) {
         pickerIconElement = `
@@ -63,6 +71,7 @@ const render = async (param) => {
         pickerIconElement = "";
     }
 
+    // Define prev option element
     let prevOptionElement;
     if (param.prevIcon) {
         prevOptionElement = `
@@ -78,6 +87,7 @@ const render = async (param) => {
         prevOptionElement = "";
     }
 
+    // Define next option element
     let nextOptionElement;
     if (param.nextIcon) {
         nextOptionElement = `
@@ -93,19 +103,20 @@ const render = async (param) => {
         nextOptionElement = "";
     }
 
+    // Retrieve and inject datepicker code to element
     document.getElementById(param.id).innerHTML = `
         <div class="dropdown zavin-datepicker is-active" id="${param.id}Datepicker">
             <a href="javascript:void(0)" class="dropdown-trigger" id="${param.id}DatepickerTrigger">
                 <div>
                     ${labelElement}
-                    <p id="${param.id}DatepickerDate">${months[currentMonth].substring(0, 3)}. ${currentDate}, ${currentYear}</p>
+                    <p id="${param.id}DatepickerDate"></p>
                 </div>
                 ${pickerIconElement}
             </a>
             <div class="dropdown-content">
                 <section class="zavin-datepicker-header" id="${param.id}DatepickerHeader">
                     <a href="javascript:void(0)" class="zavin-datepicker-period" id="${param.id}DatepickerPeriod">
-                        <h6 class="has-text-weight-bold" id="${param.id}DatepickerMonthYear">${months[currentMonth]} ${currentYear}</h6>
+                        <h6 class="has-text-weight-bold" id="${param.id}DatepickerMonthYear"></h6>
                     </a>
                     <div class="field">
                         <div class="control-combined">
@@ -117,7 +128,7 @@ const render = async (param) => {
                         </div>
                     </div>
                 </section>
-                <section class="zavin-datepicker-selection" id="${param.id}DatepickerSelection">
+                <section class="zavin-datepicker-selection is-hidden" id="${param.id}DatepickerSelection">
                     <div class="zavin-datepicker-month" id="${param.id}DatepickerMonth"></div>
                     <div class="zavin-datepicker-year" id="${param.id}DatepickerYear"></div>
                 </section>
@@ -131,6 +142,30 @@ const render = async (param) => {
             <input type="hidden" id="${param.id}DatepickerValue">
         </div>
     `;
+
+    // Retrieve global elements
+    dateElement = document.getElementById(`${param.id}DatepickerDate`);
+    monthYearElement = document.getElementById(`${param.id}DatepickerMonthYear`);
+    selectionMonthElement = document.getElementById(`${param.id}DatepickerMonth`);
+
+
+    // ---------------------------------------
+    // 🦀. Update datepicker elements
+    // ---------------------------------------
+    dateElement.textContent = `${months[currentMonth].substring(0, 3)}. ${currentDate}, ${currentYear}`;
+    monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
+
+    // Update selection of Datepicker Month
+    selectionMonthElement.innerHTML = "";
+    for (let i = 0; i < months.length; i++) {
+
+        // Set element as active if current iteration matches the current month
+        let elementClass;
+        if (i === currentMonth) elementClass = "zavin-datepicker-item is-active";
+        else elementClass = "zavin-datepicker-item";
+
+        selectionMonthElement.innerHTML += `<a href="javascript:void(0)" class="${elementClass}">${months[i]}</a>`;
+    }
 
 
     // ---------------------------------------
