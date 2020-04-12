@@ -149,6 +149,7 @@ const render = async (param) => {
 
     // Retrieve global elements
     dateElement = document.getElementById(`${param.id}DatepickerDate`);
+    headerElement = document.getElementById(`${param.id}DatepickerHeader`);
     monthYearElement = document.getElementById(`${param.id}DatepickerMonthYear`);
     selectionElement = document.getElementById(`${param.id}DatepickerSelection`);
     selectionMonthElement = document.getElementById(`${param.id}DatepickerMonth`);
@@ -202,6 +203,17 @@ const render = async (param) => {
 
     // EVENT: Datepicker Period is clicked
     document.getElementById(`${param.id}DatepickerPeriod`).onclick = () => {
+        headerElement.classList.add("is-hidden");
+        selectionElement.classList.remove("is-hidden");
+        tableElement.classList.add("is-hidden");
+
+        // Align scroll of Datepicker Month to the active month item
+        const activeSelectionMonthItem = selectionMonthElement.querySelector("a.zavin-datepicker-item.is-active");
+        selectionMonthElement.scrollTop = activeSelectionMonthItem.offsetTop;
+
+        // Align scroll of Datepicker Year to the active year item
+        const activeSelectionYearItem = selectionYearElement.querySelector("a.zavin-datepicker-item.is-active");
+        selectionYearElement.scrollTop = activeSelectionYearItem.offsetTop;
     };
 };
 
@@ -243,7 +255,7 @@ const generateYears = (count, isNext, datepickerYear) => {
     for (let i = 0; i < years.length; i++) {
         const anchor = document.createElement("a");
         anchor.href = "javascript:void(0)";
-        anchor.classList = "calendar-picker-item";
+        anchor.classList = "zavin-datepicker-item";
         anchor.textContent = years[i];
 
         // Identify where to place the element
