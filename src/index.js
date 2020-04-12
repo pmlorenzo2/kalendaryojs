@@ -275,6 +275,41 @@ const render = async (param) => {
             generateDays(currentYear, currentMonth, daysBodyElement);
         };
     }
+
+    // EVENT: Datepicker Month is clicked
+    selectionMonthElement.onclick = (event) => {
+        if (event.target && event.target.tagName === "A") {
+            const datepickerMonthItem = event.target;
+
+            // Retrieve month from the selected element's text
+            const month = months.indexOf(datepickerMonthItem.textContent);
+
+            // If selected element is not active and doesn't match the current month then proceed
+            if (!datepickerMonthItem.classList.contains("is-active") && month !== currentMonth) {
+
+                // Update current month
+                currentMonth = month;
+
+                // Remove active indicator of previously selected element
+                const activeDatepickerMonthItem = selectionMonthElement.querySelector("a.zavin-datepicker-item.is-active");
+                activeDatepickerMonthItem.classList.remove("is-active");
+
+                // Mark the newly selected element as active
+                datepickerMonthItem.classList.add("is-active");
+
+                monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
+                generateDays(currentYear, currentMonth, daysBodyElement);
+            }
+
+            headerElement.classList.remove("is-hidden");
+            selectionElement.classList.add("is-hidden");
+            tableElement.classList.remove("is-hidden");
+        }
+    };
+
+    // EVENT: Datepicker Year is clicked
+
+    // EVENT: Datepicker Year is scrolled
 };
 
 
