@@ -202,8 +202,16 @@ const render = async (param) => {
     // EVENT: Datepicker is clicked
     datepickerElement.onclick = (event) => {
         event.stopPropagation();
-        if (!datepickerElement.classList.contains("is-active")) datepickerElement.classList.add("is-active");
-        else datepickerElement.classList.remove("is-active");
+        if (!datepickerElement.classList.contains("is-active")) {
+
+            // Close the previously opened datepicker if any
+            const activeDatepicker = document.querySelector(".dropdown.zavin-datepicker.is-active");
+            if (activeDatepicker) activeDatepicker.classList.remove("is-active");
+
+            datepickerElement.classList.add("is-active");
+        } else {
+            datepickerElement.classList.remove("is-active");
+        }
     };
 
     // EVENT: Datepicker Content is clicked
