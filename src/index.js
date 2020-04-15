@@ -382,7 +382,7 @@ const render = async (param) => {
         }
     };
 
-    // EVENT: Datepicker Days Body
+    // EVENT: Datepicker Days Body is clicked
     daysBodyElement.onclick = (event) => {
         if (event.target && event.target.tagName === "A") {
             const datepickerDateItem = event.target;
