@@ -41,11 +41,14 @@ const render = async (param) => {
     //- VALIDATE: [param.pickerIcon] - Optional
     if (param.pickerIcon && typeof param.pickerIcon !== "string") throw new Error("param.pickerIcon must be a string");
 
-    //- VALIDATE: [param.prevIcon] - Optional
-    if (param.prevIcon && typeof param.prevIcon !== "string") throw new Error("param.prevIcon must be a string");
+    //- VALIDATE: [param.option] - Optional
+    if (param.option && typeof param.option !== "object") throw new Error("param.option must be an object");
 
-    //- VALIDATE: [param.nextIcon] - Optional
-    if (param.nextIcon && typeof param.nextIcon !== "string") throw new Error("param.nextIcon must be a string");
+    //- VALIDATE: [param.option.prevIcon] - Optional
+    if (param.option && param.option.prevIcon && typeof param.option.prevIcon !== "string") throw new Error("param.option.prevIcon must be a string");
+
+    //- VALIDATE: [param.option.nextIcon] - Optional
+    if (param.option && param.option.nextIcon && typeof param.option.nextIcon !== "string") throw new Error("param.option.nextIcon must be a string");
 
     // Use date today as initial for current values
     const today = new Date();
@@ -77,12 +80,12 @@ const render = async (param) => {
 
     // Define prev option element
     let prevOptionElement;
-    if (param.prevIcon) {
+    if (param.option && param.option.prevIcon) {
         prevOptionElement = `
             <div class="control">
                 <button class="button" type="button" id="${param.id}DatepickerPrev">
                     <figure class="image is-16x16">
-                        <img src="${param.prevIcon}">
+                        <img src="${param.option.prevIcon}">
                     </figure>
                 </button>
             </div>
@@ -93,12 +96,12 @@ const render = async (param) => {
 
     // Define next option element
     let nextOptionElement;
-    if (param.nextIcon) {
+    if (param.option && param.option.nextIcon) {
         nextOptionElement = `
             <div class="control">
                 <button class="button" type="button" id="${param.id}DatepickerNext">
                     <figure class="image is-16x16">
-                        <img src="${param.nextIcon}">
+                        <img src="${param.option.nextIcon}">
                     </figure>
                 </button>
             </div>
@@ -235,8 +238,8 @@ const render = async (param) => {
     };
 
     // EVENT: Datepicker Prev is clicked
-    // NOTE: Include this event only if [param.prevIcon] is defined
-    if (param.prevIcon) {
+    // NOTE: Include this event only if [param.option.prevIcon] is defined
+    if (param.option && param.option.prevIcon) {
         document.getElementById(`${param.id}DatepickerPrev`).onclick = () => {
 
             // If current month is not January then show previous month,
@@ -274,8 +277,8 @@ const render = async (param) => {
     };
 
     // EVENT: Datepicker Next is clicked
-    // NOTE: Include this event only if [param.nextIcon] is defined
-    if (param.nextIcon) {
+    // NOTE: Include this event only if [param.option.nextIcon] is defined
+    if (param.option && param.option.nextIcon) {
         document.getElementById(`${param.id}DatepickerNext`).onclick = () => {
 
             // If current month is not December then show next month,
