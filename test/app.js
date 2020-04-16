@@ -7,7 +7,8 @@ ZavinDatepicker.render({
     pickerIcon: "./icons/icons8-calendar-100.png",
     option: {
         prevIcon: "./icons/icons8-back-100.png",
-        nextIcon: "./icons/icons8-forward-100.png"
+        nextIcon: "./icons/icons8-forward-100.png",
+        today: true
     }
 });
 
@@ -17,7 +18,8 @@ ZavinDatepicker.render({
     pickerIcon: "./icons/icons8-calendar-100.png",
     option: {
         prevIcon: "./icons/icons8-back-100.png",
-        nextIcon: "./icons/icons8-forward-100.png"
+        nextIcon: "./icons/icons8-forward-100.png",
+        today: true
     }
 });
 
