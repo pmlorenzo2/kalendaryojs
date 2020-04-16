@@ -192,7 +192,7 @@ const render = async (param) => {
     }
 
     // Generate days based on the initial values provided
-    generateDays(currentYear, currentMonth, daysBodyElement);
+    generateDays(currentYear, currentMonth, valueElement.value, daysBodyElement);
 
 
     // ---------------------------------------
@@ -254,7 +254,7 @@ const render = async (param) => {
             monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
             refreshSelectionMonthActive(currentMonth, selectionMonthElement);
             refreshSelectionYearActive(currentYear, selectionYearElement);
-            generateDays(currentYear, currentMonth, daysBodyElement);
+            generateDays(currentYear, currentMonth, valueElement.value, daysBodyElement);
         };
     }
 
@@ -270,7 +270,7 @@ const render = async (param) => {
         monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
         refreshSelectionMonthActive(currentMonth, selectionMonthElement);
         refreshSelectionYearActive(currentYear, selectionYearElement);
-        generateDays(currentYear, currentMonth, daysBodyElement);
+        generateDays(currentYear, currentMonth, valueElement.value, daysBodyElement);
     };
 
     // EVENT: Datepicker Next is clicked
@@ -293,7 +293,7 @@ const render = async (param) => {
             monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
             refreshSelectionMonthActive(currentMonth, selectionMonthElement);
             refreshSelectionYearActive(currentYear, selectionYearElement);
-            generateDays(currentYear, currentMonth, daysBodyElement);
+            generateDays(currentYear, currentMonth, valueElement.value, daysBodyElement);
         };
     }
 
@@ -322,7 +322,7 @@ const render = async (param) => {
                 datepickerMonthItem.classList.add("is-active");
 
                 monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
-                generateDays(currentYear, currentMonth, daysBodyElement);
+                generateDays(currentYear, currentMonth, valueElement.value, daysBodyElement);
             }
 
             headerElement.classList.remove("is-hidden");
@@ -356,7 +356,7 @@ const render = async (param) => {
                 datepickerYearItem.classList.add("is-active");
 
                 monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
-                generateDays(currentYear, currentMonth, daysBodyElement);
+                generateDays(currentYear, currentMonth, valueElement.value, daysBodyElement);
             }
 
             headerElement.classList.remove("is-hidden");
@@ -418,9 +418,9 @@ export default { render };
 /**
  * Generate the years forward or backward from the given year
  *
- * @param {Number} count
- * @param {Boolean} isNext
- * @param {Element} datepickerYear
+ * @param   {Number}    count
+ * @param   {Boolean}   isNext
+ * @param   {Element}   datepickerYear
  */
 const generateYears = (count, isNext, datepickerYear) => {
 
@@ -461,11 +461,12 @@ const generateYears = (count, isNext, datepickerYear) => {
 /**
  * Generate the days of a given month and year in calendar format
  *
- * @param {Number} year
- * @param {Number} month
- * @param {Element} tableBody
+ * @param   {Number}    year
+ * @param   {Number}    month
+ * @param   {String}    value
+ * @param   {Element}   tableBody
  */
-const generateDays = (year, month, tableBody) => {
+const generateDays = (year, month, value, tableBody) => {
     const firstDay = new Date(year, month, 1);
     const lastDay = new Date(year, month + 1, 0);
 
@@ -489,6 +490,10 @@ const generateDays = (year, month, tableBody) => {
                 const anchor = document.createElement("a");
                 anchor.href = "javascript:void(0)";
                 anchor.textContent = dayCount;
+
+                // Mark anchor as "active" if generated reference value matches the current datepicker value
+                let refValue = generateValue(year, month, dayCount);
+                if (refValue === value) anchor.classList.add("is-active");
 
                 // Mark anchor as "today" if provided date matches the date today
                 if (year === today.getFullYear() && month === today.getMonth() && dayCount === today.getDate()) anchor.classList.add("is-today");
@@ -514,11 +519,11 @@ const generateDays = (year, month, tableBody) => {
 /**
  * Generate datepicker value given the year, month, and date
  *
- * @param {Number} year
- * @param {Number} month
- * @param {Number} date
+ * @param   {Number}    year
+ * @param   {Number}    month
+ * @param   {Number}    date
  *
- * @return {String} value
+ * @return  {String}    value
  */
 const generateValue = (year, month, date) => {
     const datepickerMonth = month + 1; // Increment by 1 since this is an index
@@ -543,8 +548,8 @@ const generateValue = (year, month, date) => {
 /**
  * Refresh Datepicker Month to see the new active item
  *
- * @param {Number} month
- * @param {Element} datepickerMonth
+ * @param   {Number}    month
+ * @param   {Element}   datepickerMonth
  */
 const refreshSelectionMonthActive = (month, datepickerMonth) => {
 
@@ -568,8 +573,8 @@ const refreshSelectionMonthActive = (month, datepickerMonth) => {
 /**
  * Refresh Datepicker Year to see the new active item
  *
- * @param {Number} year
- * @param {Element} datepickerYear
+ * @param   {Number}    year
+ * @param   {Element}   datepickerYear
  */
 const refreshSelectionYearActive = (year, datepickerYear) => {
 
