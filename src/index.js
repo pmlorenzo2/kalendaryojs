@@ -50,6 +50,9 @@ const render = async (param) => {
     //- VALIDATE: [param.option.nextIcon] - Optional
     if (param.option && param.option.nextIcon && typeof param.option.nextIcon !== "string") throw new Error("param.option.nextIcon must be a string");
 
+    //- VALIDATE: [param.option.today] - Optional
+    if (param.option && param.option.today && typeof param.option.today !== "boolean") throw new Error("param.option.today must be a boolean");
+
     // Use date today as initial for current values
     const today = new Date();
     currentYear = today.getFullYear();
@@ -94,6 +97,18 @@ const render = async (param) => {
         prevOptionElement = "";
     }
 
+    // Define today option element
+    let todayOptionElement;
+    if (param.option && param.option.today) {
+        todayOptionElement = `
+            <div class="control">
+                <button class="button zavin-datepicker-today" type="button" id="${param.id}DatepickerToday">Today</button>
+            </div>
+        `;
+    } else {
+        todayOptionElement = "";
+    }
+
     // Define next option element
     let nextOptionElement;
     if (param.option && param.option.nextIcon) {
@@ -128,9 +143,7 @@ const render = async (param) => {
                     <div class="field">
                         <div class="control-combined">
                             ${prevOptionElement}
-                            <div class="control">
-                                <button class="button zavin-datepicker-today" type="button" id="${param.id}DatepickerToday">Today</button>
-                            </div>
+                            ${todayOptionElement}
                             ${nextOptionElement}
                         </div>
                     </div>
@@ -262,19 +275,22 @@ const render = async (param) => {
     }
 
     // EVENT: Datepicker Today is clicked
-    document.getElementById(`${param.id}DatepickerToday`).onclick = () => {
+    // NOTE: Include this event only if [param.option.today] is set to true
+    if (param.option && param.option.today) {
+        document.getElementById(`${param.id}DatepickerToday`).onclick = () => {
 
-        // Set to current date
-        const today = new Date();
-        currentYear = today.getFullYear();
-        currentMonth = today.getMonth();
-        currentDate = today.getDate();
+            // Set to current date
+            const today = new Date();
+            currentYear = today.getFullYear();
+            currentMonth = today.getMonth();
+            currentDate = today.getDate();
 
-        monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
-        refreshSelectionMonthActive(currentMonth, selectionMonthElement);
-        refreshSelectionYearActive(currentYear, selectionYearElement);
-        generateDays(currentYear, currentMonth, valueElement.value, daysBodyElement);
-    };
+            monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
+            refreshSelectionMonthActive(currentMonth, selectionMonthElement);
+            refreshSelectionYearActive(currentYear, selectionYearElement);
+            generateDays(currentYear, currentMonth, valueElement.value, daysBodyElement);
+        };
+    }
 
     // EVENT: Datepicker Next is clicked
     // NOTE: Include this event only if [param.option.nextIcon] is defined
