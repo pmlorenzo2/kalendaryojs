@@ -11,6 +11,20 @@ A custom datepicker built for Zavin Apps.
 
 ## Installation
 
+**Requirement:** Julia CSS
+
+### 1.) Import datepicker style to your HTML
+
+```html
+<link rel="stylesheet" href="https://zavin.io/cdn/zavin-datepicker/src/index.css" />
+```
+
+### 2.) Import datepicker script to your JS
+
+```js
+import ZavinDatepicker from "https://zavin.io/cdn/zavin-datepicker/src/index.js";
+```
+
 ## Usage
 
 ## Configuration
