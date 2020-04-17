@@ -16,6 +16,11 @@
   "author": "Miguel Lorenzo <miguel@cnkdynamics.com>",
   "license": "ISC",
   "devDependencies": {
-    "live-server": "^1.2.1"
+    "del": "^4.0.0",
+    "gulp": "^4.0.2",
+    "gulp-gzip": "^1.4.2",
+    "gulp-tar": "^2.1.0",
+    "live-server": "^1.2.1",
+    "vinyl-ftp": "^0.6.1"
   }
 }
