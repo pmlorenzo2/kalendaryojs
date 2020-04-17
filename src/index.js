@@ -9,7 +9,34 @@ const days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
 
 
 /**
- * [description]
+ * Create instance of datepicker element.
+ *
+ * @param   {Object}    param
+ *                      [REQUIRED]
+ *
+ * @param   {String}    param.id
+ *                      Reference to the element this datepicker will be injected into.
+ *                      [REQUIRED]
+ *
+ * @param   {String}    param.label
+ *                      User-defined datepicker label.
+ *
+ * @param   {String}    param.pickerIcon
+ *                      Path to the icon for datepicker.
+ *
+ * @param   {Object}    param.option
+ *                      The option this datepicker will have.
+ *
+ * @param   {String}    param.option.prevIcon
+ *                      Path to the icon for datepicker prev.
+ *                      (If defined prev option will be available)
+ *
+ * @param   {String}    param.option.nextIcon
+ *                      Path to the icon for datepicker next.
+ *                      (If defined next option will be available)
+ *
+ * @param   {Boolean}   param.option.today
+ *                      Set to true to make "Today" option available.
  */
 const render = async (param) => {
 
