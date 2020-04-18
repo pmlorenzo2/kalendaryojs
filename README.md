@@ -27,4 +27,14 @@ import ZavinDatepicker from "https://zavin.io/cdn/zavin-datepicker/src/index.js"
 
 ## Usage
 
+### 1.) Define element where you want to inject your datepicker
+
+```html
+```
+
+### 2.)
+
+```js
+```
+
 ## Configuration
