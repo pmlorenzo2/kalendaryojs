@@ -4,6 +4,7 @@ A custom datepicker built for Zavin Apps.
 
 **Features:**
 - Creates a custom datepicker using plain HTML, CSS, and JS
+- Basic toggling of datepicker
 - Quick selection of month and year in a form of dropdown
 - Prev/Next arrows to move through the months
 - Today button to show the current date
