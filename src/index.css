@@ -56,7 +56,7 @@
     padding-right: 4px;
 }
 .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header .button.zavin-datepicker-today {
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 400;
     text-transform: uppercase;
 }
