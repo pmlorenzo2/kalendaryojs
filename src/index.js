@@ -451,6 +451,9 @@ const render = async (param) => {
 
                 dateElement.textContent = `${months[currentMonth].substring(0, 3)}. ${currentDate}, ${currentYear}`;
                 valueElement.value = generateValue(currentYear, currentMonth, currentDate);
+
+                // Inform event listeners of the change that happened
+                valueElement.dispatchEvent(new Event("change"));
             }
         }
     };
