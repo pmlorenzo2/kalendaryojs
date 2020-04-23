@@ -23,16 +23,9 @@ const generateValue = (year, month, date) => {
 
 // Get date today
 const today = new Date();
-
-// Define date values for From Datepicker
-const fromYear = today.getFullYear();
-const fromMonth = today.getMonth();
-const fromDate = today.getDate();
-
-// Define date values for To Datepicker
-const toYear = today.getFullYear();
-const toMonth = today.getMonth() + 1;
-const toDate = today.getDate();
+const todayYear = today.getFullYear();
+const todayMonth = today.getMonth();
+const todayDate = today.getDate();
 
 
 //
@@ -44,7 +37,7 @@ ZavinDatepicker.render({
     id: "from",
     label: "From",
     pickerIcon: "./icons/icons8-calendar-100.png",
-    value: generateValue(fromYear, fromMonth, fromDate),
+    value: generateValue(todayYear, todayMonth, todayDate),
     option: {
         prevIcon: "./icons/icons8-back-100.png",
         nextIcon: "./icons/icons8-forward-100.png",
@@ -57,7 +50,7 @@ ZavinDatepicker.render({
     id: "to",
     label: "To",
     pickerIcon: "./icons/icons8-calendar-100.png",
-    value: generateValue(toYear, toMonth, toDate),
+    value: generateValue(todayYear, todayMonth + 1, todayDate),
     option: {
         prevIcon: "./icons/icons8-back-100.png",
         nextIcon: "./icons/icons8-forward-100.png",
