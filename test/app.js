@@ -1,6 +1,12 @@
 // app.js
 import ZavinDatepicker from "../src/index.js";
 
+
+//
+// Update elements in DOM
+//
+
+// Render From Datepicker
 ZavinDatepicker.render({
     id: "from",
     label: "From",
@@ -12,6 +18,7 @@ ZavinDatepicker.render({
     }
 });
 
+// Render To Datepicker
 ZavinDatepicker.render({
     id: "to",
     label: "To",
@@ -23,6 +30,12 @@ ZavinDatepicker.render({
     }
 });
 
+
+//
+// Place all event handlers here
+//
+
+// EVENT: DOM is clicked
 document.onclick = () => {
     const fromDatepicker = document.getElementById("fromDatepicker");
     if (fromDatepicker) fromDatepicker.classList.remove("is-active");
