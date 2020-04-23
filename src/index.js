@@ -24,6 +24,10 @@ const days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
  * @param   {String}    param.pickerIcon
  *                      Path to the icon for datepicker.
  *
+ * @param   {String}    param.value
+ *                      Initial value for this datepicker.
+ *                      (Follow YYYY-MM-DD format)
+ *
  * @param   {Object}    param.option
  *                      The option this datepicker will have.
  *
@@ -68,6 +72,9 @@ const render = async (param) => {
     //- VALIDATE: [param.pickerIcon] - Optional
     if (param.pickerIcon && typeof param.pickerIcon !== "string") throw new Error("param.pickerIcon must be a string");
 
+    //- VALIDATE: [param.value] - Optional
+    if (param.value && typeof param.value !== "string") throw new Error("param.value must be a string");
+
     //- VALIDATE: [param.option] - Optional
     if (param.option && typeof param.option !== "object") throw new Error("param.option must be an object");
 
@@ -80,11 +87,19 @@ const render = async (param) => {
     //- VALIDATE: [param.option.today] - Optional
     if (param.option && param.option.today && typeof param.option.today !== "boolean") throw new Error("param.option.today must be a boolean");
 
-    // Use date today as initial for current values
-    const today = new Date();
-    currentYear = today.getFullYear();
-    currentMonth = today.getMonth();
-    currentDate = today.getDate();
+    // If [param.value] is defined then set it as initial values,
+    // Else use date today as initial values
+    if (param.value) {
+        const values = param.value.split("-");
+        currentYear = parseInt(values[0]);
+        currentMonth = parseInt(values[1] - 1); // Subtract by 1 to make it an index
+        currentDate = parseInt(values[2]);
+    } else {
+        const today = new Date();
+        currentYear = today.getFullYear();
+        currentMonth = today.getMonth();
+        currentDate = today.getDate();
+    }
 
 
     // ---------------------------------------
@@ -233,6 +248,9 @@ const render = async (param) => {
         const day = days[i];
         daysHeaderElement.innerHTML += `<th>${day.substring(0, 3)}</th>`;
     }
+
+    // Generate initial datepicker value
+    valueElement.value = generateValue(currentYear, currentMonth, currentDate);
 
     // Generate days based on the initial values provided
     generateDays(currentYear, currentMonth, valueElement.value, daysBodyElement);
