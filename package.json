@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "clean.all": "rm -rf dist; rm -rf node_modules; rm -rf package-lock.json",
-    "dev": "live-server --port=9000 --no-browser",
+    "dev": "live-server --port=7000 --no-browser",
     "start": "python -m SimpleHTTPServer"
   },
   "keywords": [],
