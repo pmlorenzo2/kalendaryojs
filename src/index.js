@@ -546,39 +546,50 @@ const generateDays = (year, month, value, tableBody) => {
     // Render the days in calendar format
     let dayCount = 1;
     tableBody.innerHTML = "";
-    for (let i = 0; i < 5; i++) {
-        const tableRow = document.createElement("tr");
-        for (let j = 0; j < 7; j++) {
-            const tableData = document.createElement("td");
+    for (let i = 0; i < 6; i++) {
 
-            // If the first count starts at Sunday then simply render it,
-            // Else keep adding spacing until it aligns on its designated day
-            if (offset === 0) {
-                const anchor = document.createElement("a");
-                anchor.href = "javascript:void(0)";
-                anchor.textContent = dayCount;
+        // If the count hasn't surpassed the last date then continue rendering the days,
+        // Else stop and don't proceed further
+        if (dayCount <= lastDay.getDate()) {
 
-                // Mark anchor as "active" if generated reference value matches the current datepicker value
-                let refValue = generateValue(year, month, dayCount);
-                if (refValue === value) anchor.classList.add("is-active");
+            const tableRow = document.createElement("tr");
+            for (let j = 0; j < 7; j++) {
+                const tableData = document.createElement("td");
 
-                // Mark anchor as "today" if provided date matches the date today
-                if (year === today.getFullYear() && month === today.getMonth() && dayCount === today.getDate()) anchor.classList.add("is-today");
+                // If the first count starts at Sunday then simply render it,
+                // Else keep adding spacing until it aligns on its designated day
+                if (offset === 0) {
 
-                tableData.appendChild(anchor);
-                tableRow.appendChild(tableData);
+                    // If the count surpasses the last date then stop and don't proceed further
+                    if (dayCount > lastDay.getDate()) break;
 
-                // If we've reached the last date stop the count,
-                // Else keep incrementing the count
-                if (dayCount === lastDay.getDate()) break;
-                else dayCount++;
+                    const anchor = document.createElement("a");
+                    anchor.href = "javascript:void(0)";
+                    anchor.textContent = dayCount;
 
-            } else {
-                tableRow.appendChild(tableData);
-                offset--;
+                    // Mark anchor as "active" if generated reference value matches the current datepicker value
+                    let refValue = generateValue(year, month, dayCount);
+                    if (refValue === value) anchor.classList.add("is-active");
+
+                    // Mark anchor as "today" if provided date matches the date today
+                    if (year === today.getFullYear() && month === today.getMonth() && dayCount === today.getDate()) anchor.classList.add("is-today");
+
+                    tableData.appendChild(anchor);
+                    tableRow.appendChild(tableData);
+
+                    // Increment the count
+                    dayCount++;
+
+                } else {
+                    tableRow.appendChild(tableData);
+                    offset--;
+                }
             }
+            tableBody.appendChild(tableRow);
+
+        } else {
+            break;
         }
-        tableBody.appendChild(tableRow);
     }
 };
 
