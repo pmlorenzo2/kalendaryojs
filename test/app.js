@@ -24,7 +24,7 @@ const generateValue = (year, month, date) => {
 // Get date today
 const today = new Date();
 const todayYear = today.getFullYear();
-const todayMonth = today.getMonth() + 1; // Increment by 1 since method returns an index
+const todayMonth = today.getMonth();
 const todayDate = today.getDate();
 
 
