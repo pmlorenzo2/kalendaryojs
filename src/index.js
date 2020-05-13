@@ -7,6 +7,9 @@
 const months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
 const days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
 
+// Define number of items to be generated in selection year
+const selection_year_count = 10;
+
 
 /**
  * Create instance of datepicker element.
@@ -43,9 +46,6 @@ const days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
  *                      Set to true to make "Today" option available.
  */
 const render = async (param) => {
-
-    // Define number of items to be generated in selection year
-    const selection_year_count = 10;
 
     // Store current values here
     let currentYear, currentMonth, currentDate;
@@ -512,6 +512,13 @@ const setValue = (param) => {
     const selectionYearElement = document.getElementById(`${param.id}DatepickerYear`);
     const daysBodyElement = document.getElementById(`${param.id}DatepickerDaysBody`);
     const valueElement = document.getElementById(`${param.id}DatepickerValue`);
+
+    // Update Datepicker Selection Year to accommodate the missing years
+    const selectionYearItems = selectionYearElement.querySelectorAll("a.zavin-datepicker-item");
+    const firstYear = parseInt(selectionYearItems[0].textContent);
+    const lastYear = parseInt(selectionYearItems[selectionYearItems.length - 1].textContent);
+    if (currentYear < firstYear) generateYears((firstYear - currentYear) + selection_year_count, false, selectionYearElement);
+    else if (currentYear > lastYear) generateYears((currentYear - lastYear) + selection_year_count, true, selectionYearElement);
 
     dateElement.textContent = `${months[currentMonth].substring(0, 3)}. ${currentDate}, ${currentYear}`;
     monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
