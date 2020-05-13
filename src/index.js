@@ -499,11 +499,31 @@ const setValue = (param) => {
     //- VALIDATE: [param.value] - Required
     if (!param.value) throw new Error("param.value is required");
     if (typeof param.value !== "string") throw new Error("param.value must be a string");
+
+    const values = param.value.split("-");
+    currentYear = parseInt(values[0]);
+    currentMonth = parseInt(values[1]) - 1; // Subtract by 1 to make it an index
+    currentDate = parseInt(values[2]);
+
+    // Retrieve the following Datepicker elements
+    const dateElement = document.getElementById(`${param.id}DatepickerDate`);
+    const monthYearElement = document.getElementById(`${param.id}DatepickerMonthYear`);
+    const selectionMonthElement = document.getElementById(`${param.id}DatepickerMonth`);
+    const selectionYearElement = document.getElementById(`${param.id}DatepickerYear`);
+    const daysBodyElement = document.getElementById(`${param.id}DatepickerDaysBody`);
+    const valueElement = document.getElementById(`${param.id}DatepickerValue`);
+
+    dateElement.textContent = `${months[currentMonth].substring(0, 3)}. ${currentDate}, ${currentYear}`;
+    monthYearElement.textContent = `${months[currentMonth]} ${currentYear}`;
+    refreshSelectionMonthActive(currentMonth, selectionMonthElement);
+    refreshSelectionYearActive(currentYear, selectionYearElement);
+    valueElement.value = generateValue(currentYear, currentMonth, currentDate);
+    generateDays(currentYear, currentMonth, valueElement.value, daysBodyElement);
 };
 
 
 // Expose
-export default { render };
+export default { render, setValue };
 
 
 /**
