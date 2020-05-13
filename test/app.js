@@ -1,26 +1,6 @@
 // app.js
 import ZavinDatepicker from "../src/index.js";
 
-// Generate value given the year, month, and date
-const generateValue = (year, month, date) => {
-    const dateMonth = month + 1; // Increment by 1 since this is an index
-
-    // Extract value for month
-    // NOTE: Month must be double digit
-    let valueMonth;
-    if (dateMonth < 10) valueMonth = "0" + dateMonth;
-    else valueMonth = dateMonth;
-
-    // Extract value for date
-    // NOTE: Date must be double digit
-    let valueDate;
-    if (date < 10) valueDate = "0" + date;
-    else valueDate = date;
-
-    let value = `${year}-${valueMonth}-${valueDate}`;
-    return value;
-};
-
 // Get date today
 const today = new Date();
 const todayYear = today.getFullYear();
@@ -33,27 +13,29 @@ const todayDate = today.getDate();
 //
 
 // Render From Datepicker
+const startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 ZavinDatepicker.render({
     id: "from",
     label: "From",
-    pickerIcon: "./icons/icons8-calendar-100.png",
-    value: generateValue(todayYear, todayMonth, todayDate),
+    pickerIcon: "./assets/icons/icons8-calendar-100.png",
+    value: dayjs(startDate).format("YYYY-MM-DD"),
     option: {
-        prevIcon: "./icons/icons8-back-100.png",
-        nextIcon: "./icons/icons8-forward-100.png",
+        prevIcon: "./assets/icons/icons8-back-100.png",
+        nextIcon: "./assets/icons/icons8-forward-100.png",
         today: true
     }
 });
 
 // Render To Datepicker
+const endDate = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
 ZavinDatepicker.render({
     id: "to",
     label: "To",
-    pickerIcon: "./icons/icons8-calendar-100.png",
-    value: generateValue(todayYear, todayMonth + 1, todayDate),
+    pickerIcon: "./assets/icons/icons8-calendar-100.png",
+    value: dayjs(endDate).format("YYYY-MM-DD"),
     option: {
-        prevIcon: "./icons/icons8-back-100.png",
-        nextIcon: "./icons/icons8-forward-100.png",
+        prevIcon: "./assets/icons/icons8-back-100.png",
+        nextIcon: "./assets/icons/icons8-forward-100.png",
         today: true
     }
 });
