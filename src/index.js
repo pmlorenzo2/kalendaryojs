@@ -92,7 +92,7 @@ const render = async (param) => {
     if (param.value) {
         const values = param.value.split("-");
         currentYear = parseInt(values[0]);
-        currentMonth = parseInt(values[1] - 1); // Subtract by 1 to make it an index
+        currentMonth = parseInt(values[1]) - 1; // Subtract by 1 to make it an index
         currentDate = parseInt(values[2]);
     } else {
         const today = new Date();
@@ -475,6 +475,30 @@ const render = async (param) => {
             }
         }
     };
+};
+
+
+/**
+ * [description]
+ * @param  {[type]} param [description]
+ * @return {[type]}       [description]
+ */
+const setValue = (param) => {
+
+    // Store current values here
+    let currentYear, currentMonth, currentDate;
+
+    //- VALIDATE: [param] - Required
+    if (!param) throw new Error("param is required");
+    if (typeof param !== "object") throw new Error("param must be an object");
+
+    //- VALIDATE: [param.id] - Required
+    if (!param.id) throw new Error("param.id is required");
+    if (typeof param.id !== "string") throw new Error("param.id must be a string");
+
+    //- VALIDATE: [param.value] - Required
+    if (!param.value) throw new Error("param.value is required");
+    if (typeof param.value !== "string") throw new Error("param.value must be a string");
 };
 
 
