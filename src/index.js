@@ -479,9 +479,18 @@ const render = async (param) => {
 
 
 /**
- * [description]
- * @param  {[type]} param [description]
- * @return {[type]}       [description]
+ * Sets the value of an existing datepicker
+ *
+ * @param   {Object}    param
+ *                      [REQUIRED]
+ *
+ * @param   {Object}    param.id
+ *                      Reference to the element where the target datepicker was injected into.
+ *                      [REQUIRED]
+ *
+ * @param   {String}    param.value
+ *                      The new value for the target datepicker.
+ *                      [REQUIRED]
  */
 const setValue = (param) => {
 
