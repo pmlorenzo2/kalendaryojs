@@ -448,32 +448,7 @@ const render = async (param) => {
 
     // EVENT: Datepicker Days Body is clicked
     daysBodyElement.onclick = (event) => {
-        if (event.target && event.target.tagName === "A") {
-            const datepickerDateItem = event.target;
-
-            // Retrieve date from the selected element's text
-            const date = parseInt(datepickerDateItem.textContent);
-
-            // If selected element is not active then proceed
-            if (!datepickerDateItem.classList.contains("is-active")) {
-
-                // Update current date
-                currentDate = date;
-
-                // Remove active indicator of previously selected element
-                const activeDatepickerDateItem = daysBodyElement.querySelector("a.is-active");
-                if (activeDatepickerDateItem) activeDatepickerDateItem.classList.remove("is-active");
-
-                // Mark the newly selected element as active
-                datepickerDateItem.classList.add("is-active");
-
-                dateElement.textContent = `${months[currentMonth].substring(0, 3)}. ${currentDate}, ${currentYear}`;
-                valueElement.value = generateValue(currentYear, currentMonth, currentDate);
-
-                // Inform event listeners of the change that happened
-                valueElement.dispatchEvent(new Event("change"));
-            }
-        }
+        dateClick(event, param.id, currentYear, currentMonth, currentDate);
     };
 };
 
@@ -535,6 +510,9 @@ const setValue = (param) => {
     refreshSelectionYearActive(currentYear, selectionYearElement);
     valueElement.value = generateValue(currentYear, currentMonth, currentDate);
     generateDays(currentYear, currentMonth, valueElement.value, daysBodyElement);
+
+    // Reload Datepicker Days Body is clicked EVENT
+    daysBodyElement.onclick = (event) => { dateClick(event, param.id, currentYear, currentMonth, currentDate); };
 };
 
 
@@ -728,6 +706,50 @@ const refreshSelectionYearActive = (year, datepickerYear) => {
         if (valueYear === year) {
             datepickerYearItem.classList.add("is-active");
             break;
+        }
+    }
+};
+
+
+/**
+ * [description]
+ * @param  {[type]} event        [description]
+ * @param  {[type]} id           [description]
+ * @param  {[type]} currentYear  [description]
+ * @param  {[type]} currentMonth [description]
+ * @param  {[type]} currentDate  [description]
+ * @return {[type]}              [description]
+ */
+const dateClick = (event, id, currentYear, currentMonth, currentDate) => {
+    if (event.target && event.target.tagName === "A") {
+        const datepickerDateItem = event.target;
+
+        // Retrieve date from the selected element's text
+        const date = parseInt(datepickerDateItem.textContent);
+
+        // If selected element is not active then proceed
+        if (!datepickerDateItem.classList.contains("is-active")) {
+
+            // Retrieve the following Datepicker elements
+            const daysBodyElement = document.getElementById(`${id}DatepickerDaysBody`);
+            const dateElement = document.getElementById(`${id}DatepickerDate`);
+            const valueElement = document.getElementById(`${id}DatepickerValue`);
+
+            // Update current date
+            currentDate = date;
+
+            // Remove active indicator of previously selected element
+            const activeDatepickerDateItem = daysBodyElement.querySelector("a.is-active");
+            if (activeDatepickerDateItem) activeDatepickerDateItem.classList.remove("is-active");
+
+            // Mark the newly selected element as active
+            datepickerDateItem.classList.add("is-active");
+
+            dateElement.textContent = `${months[currentMonth].substring(0, 3)}. ${currentDate}, ${currentYear}`;
+            valueElement.value = generateValue(currentYear, currentMonth, currentDate);
+
+            // Inform event listeners of the change that happened
+            valueElement.dispatchEvent(new Event("change"));
         }
     }
 };
