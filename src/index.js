@@ -712,13 +712,13 @@ const refreshSelectionYearActive = (year, datepickerYear) => {
 
 
 /**
- * [description]
- * @param  {[type]} event        [description]
- * @param  {[type]} id           [description]
- * @param  {[type]} currentYear  [description]
- * @param  {[type]} currentMonth [description]
- * @param  {[type]} currentDate  [description]
- * @return {[type]}              [description]
+ * Handle Datepicker Date click event
+ *
+ * @param   {Event}     event
+ * @param   {String}    id
+ * @param   {Number}    currentYear
+ * @param   {Number}    currentMonth
+ * @param   {Number}    currentDate
  */
 const dateClick = (event, id, currentYear, currentMonth, currentDate) => {
     if (event.target && event.target.tagName === "A") {
