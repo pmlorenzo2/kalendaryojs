@@ -731,8 +731,8 @@ const dateClick = (event, id, currentYear, currentMonth, currentDate) => {
         if (!datepickerDateItem.classList.contains("is-active")) {
 
             // Retrieve the following Datepicker elements
-            const daysBodyElement = document.getElementById(`${id}DatepickerDaysBody`);
             const dateElement = document.getElementById(`${id}DatepickerDate`);
+            const daysBodyElement = document.getElementById(`${id}DatepickerDaysBody`);
             const valueElement = document.getElementById(`${id}DatepickerValue`);
 
             // Update current date
