@@ -14,7 +14,7 @@ const todayDate = today.getDate();
 
 // Render From Datepicker
 const startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-ZavinDatepicker.render({
+const fromDatepicker = new ZavinDatepicker({
     id: "from",
     label: "From",
     pickerIcon: "./assets/icons/icons8-calendar-100.png",
@@ -25,10 +25,11 @@ ZavinDatepicker.render({
         today: true
     }
 });
+fromDatepicker.render();
 
 // Render To Datepicker
 const endDate = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
-ZavinDatepicker.render({
+const toDatepicker = new ZavinDatepicker({
     id: "to",
     label: "To",
     pickerIcon: "./assets/icons/icons8-calendar-100.png",
@@ -39,6 +40,7 @@ ZavinDatepicker.render({
         today: true
     }
 });
+toDatepicker.render();
 
 
 //
