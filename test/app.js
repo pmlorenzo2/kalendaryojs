@@ -12,35 +12,41 @@ const todayDate = today.getDate();
 // Update elements in DOM
 //
 
-// Render From Datepicker
 const startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-const fromDatepicker = new ZavinDatepicker({
-    id: "from",
-    label: "From",
-    pickerIcon: "./assets/icons/icons8-calendar-100.png",
-    value: dayjs(startDate).format("YYYY-MM-DD"),
-    option: {
-        prevIcon: "./assets/icons/icons8-back-100.png",
-        nextIcon: "./assets/icons/icons8-forward-100.png",
-        today: true
-    }
-});
-fromDatepicker.render();
-
-// Render To Datepicker
 const endDate = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
-const toDatepicker = new ZavinDatepicker({
-    id: "to",
-    label: "To",
-    pickerIcon: "./assets/icons/icons8-calendar-100.png",
-    value: dayjs(endDate).format("YYYY-MM-DD"),
-    option: {
-        prevIcon: "./assets/icons/icons8-back-100.png",
-        nextIcon: "./assets/icons/icons8-forward-100.png",
-        today: true
-    }
-});
-toDatepicker.render();
+try {
+
+    // Render From Datepicker
+    const fromDatepicker = new ZavinDatepicker({
+        id: "from",
+        label: "From",
+        pickerIcon: "./assets/icons/icons8-calendar-100.png",
+        value: dayjs(startDate).format("YYYY-MM-DD"),
+        option: {
+            prevIcon: "./assets/icons/icons8-back-100.png",
+            nextIcon: "./assets/icons/icons8-forward-100.png",
+            today: true
+        }
+    });
+    fromDatepicker.render();
+
+    // Render To Datepicker
+    const toDatepicker = new ZavinDatepicker({
+        id: "to",
+        label: "To",
+        pickerIcon: "./assets/icons/icons8-calendar-100.png",
+        value: dayjs(endDate).format("YYYY-MM-DD"),
+        option: {
+            prevIcon: "./assets/icons/icons8-back-100.png",
+            nextIcon: "./assets/icons/icons8-forward-100.png",
+            today: true
+        }
+    });
+    toDatepicker.render();
+
+} catch (error) {
+    console.error(error);
+}
 
 
 //
