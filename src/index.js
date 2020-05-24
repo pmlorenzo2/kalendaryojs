@@ -12,11 +12,13 @@ const selection_year_count = 10;
 
 
 /**
- * [Enter description]
+ * Create and customize your own Zavin Datepicker using this class.
  */
 class ZavinDatepicker {
 
     /**
+     * Create instance of ZavinDatepicker class.
+     *
      * @param   {Object}    param
      *                      [REQUIRED]
      *
@@ -77,6 +79,9 @@ class ZavinDatepicker {
 
     //- INSTANCE METHODS ---------------------------
 
+    /**
+     * Render this instance of Zavin Datepicker.
+     */
     render() {
         let datepickerElement,
             dateElement,
@@ -466,6 +471,13 @@ class ZavinDatepicker {
         };
     }
 
+    /**
+     * Sets the value of this datepicker's instance.
+     *
+     * @param   {String}    value
+     *                      The new value for this datepicker.
+     *                      [REQUIRED]
+     */
     setValue(value) {
 
         //- VALIDATE: [value] - Required
