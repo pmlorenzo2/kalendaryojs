@@ -1,41 +1,68 @@
 # Zavin Datepicker
 
-A custom datepicker built for Zavin Apps.
+A simple and custom date picker built for Zavin apps.
 
-**Features:**
-- Creates a custom datepicker using plain HTML, CSS, and JS
-- Basic toggling of datepicker
-- Quick selection of month and year in a form of dropdown
-- Prev/Next arrows to move through the months
-- Today button to show the current date
-- Marking of date today and selected date
+## Overview
+
+Zavin Datepicker is built to address the needs of having a widget that can handle user date selection. Even though there is an input date most browsers still don't have support for it. Thus the need to create a custom date picker for our Zavin apps.
 
 ## Installation
 
-**Requirement:** Julia CSS
+**Dependency:** Julia CSS
 
-### 1.) Import datepicker style to your HTML
+### 1.) Using our server's CDN
 
-```html
-<link rel="stylesheet" href="https://zavin.io/cdn/zavin-datepicker/src/index.css" />
-```
-
-### 2.) Import datepicker script to your JS
-
-```js
-import ZavinDatepicker from "https://zavin.io/cdn/zavin-datepicker/src/index.js";
-```
-
-## Usage
-
-### 1.) Define element where you want to inject your datepicker
+Import Zavin Datepicker CSS to your HTML.
 
 ```html
+<link rel="stylesheet" href="...">
 ```
 
-### 2.)
+Import Zavin Datepicker JS to your script.
 
 ```js
+import ZavinDatepicker from "...";
 ```
 
-## Configuration
+### 2.) Download a local copy on your machine
+
+Coming soon...
+
+## Sample Usage
+
+```html
+<div id="date"></div>
+```
+
+```js
+const dateDatepicker = new ZavinDatepicker({
+    id: "date",
+    label: "Date",
+    pickerIcon: "YOUR_PICKER_ICON.png",
+    value: "2020-01-01",
+    option: {
+        prevIcon: "YOUR_PREV_ICON.png",
+        nextIcon: "YOUR_NEXT_ICON.png",
+        today: true
+    }
+});
+
+// Render your datepicker instance
+dateDatepicker.render();
+```
+
+## Documentation
+
+```js
+new ZavinDatepicker(param)
+```
+
+- **param** `Object`
+- **param.id** `String`
+- **param.label** `String`
+- **param.pickerIcon** `String`
+- **param.value** `String`
+- **param.option** `Object`
+- **param.option.prevIcon** `String`
+- **param.option.nextIcon** `String`
+- **param.option.today** `Boolean`
