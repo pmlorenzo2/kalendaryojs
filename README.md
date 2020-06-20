@@ -53,16 +53,70 @@ dateDatepicker.render();
 
 ## Documentation
 
+### Instantiate Zavin Datepicker
+
+This creates a new instance of Zavin Datepicker.
+
 ```js
 new ZavinDatepicker(param)
 ```
 
-- **param** `Object`
-- **param.id** `String`
-- **param.label** `String`
-- **param.pickerIcon** `String`
-- **param.value** `String`
-- **param.option** `Object`
-- **param.option.prevIcon** `String`
-- **param.option.nextIcon** `String`
-- **param.option.today** `Boolean`
+- **param** `{Object}`
+
+    This contains the parameters that will be used by Zavin Datepicker. **(Required)**
+
+- **param.id** `{String}`
+
+    Reference to the element this datepicker will be injected into. **(Required)**
+
+- **param.label** `{String}`
+
+    User-defined datepicker label.
+
+- **param.pickerIcon** `{String}`
+
+    Path to the icon for datepicker.
+
+- **param.value** `{String}`
+
+    Initial value for this datepicker. (Follow **YYYY-MM-DD** format)
+
+- **param.option** `{Object}`
+
+    The options this datepicker will have.
+
+- **param.option.prevIcon** `{String}`
+
+    Path to the icon for datepicker prev. (If defined prev option will be available)
+
+- **param.option.nextIcon** `{String}`
+
+    Path to the icon for datepicker next. (If defined next option will be available)
+
+- **param.option.today** `{Boolean}`
+
+    Set to true to make "Today" option available.
+
+### Method: Render
+
+Renders the instance of Zavin Datepicker.
+
+```js
+const datepicker = new ZavinDatepicker(...);
+
+datepicker.render();
+```
+
+### Method: Set Value
+
+Sets the value of a Zavin Datepicker's instance.
+
+```js
+const datepicker = new ZavinDatepicker(...);
+
+datepicker.setValue(value);
+```
+
+- **value** `{String}`
+
+    The new value for the given datepicker. **(Required)**
