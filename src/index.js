@@ -263,6 +263,25 @@ class ZavinDatepicker {
                 const activeDatepicker = document.querySelector(".dropdown.zavin-datepicker.is-active");
                 if (activeDatepicker) activeDatepicker.classList.remove("is-active");
 
+                // Display calendar again if selection month and year are shown
+                if (!selectionElement.classList.contains("is-hidden")) {
+                    headerElement.classList.remove("is-hidden");
+                    selectionElement.classList.add("is-hidden");
+                    tableElement.classList.remove("is-hidden");
+                }
+
+                // Display current calendar if ever value was not changed but moved forward or backward
+                if (generateValue(this.currentYear, this.currentMonth, this.currentDate) !== valueElement.value) {
+                    const values = valueElement.value.split("-");
+                    this.currentYear = parseInt(values[0]);
+                    this.currentMonth = parseInt(values[1]) - 1; // Subtract by 1 to make it an index
+                    this.currentDate = parseInt(values[2]);
+
+                    dateElement.textContent = `${months[this.currentMonth].substring(0, 3)}. ${this.currentDate}, ${this.currentYear}`;
+                    monthYearElement.textContent = `${months[this.currentMonth]} ${this.currentYear}`;
+                    generateDays(this.currentYear, this.currentMonth, valueElement.value, daysBodyElement);
+                }
+
                 datepickerElement.classList.add("is-active");
             } else {
                 datepickerElement.classList.remove("is-active");
