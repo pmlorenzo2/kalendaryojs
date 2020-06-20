@@ -37,7 +37,7 @@ class ZavinDatepicker {
      *                      (Follow YYYY-MM-DD format)
      *
      * @param   {Object}    param.option
-     *                      The option this datepicker will have.
+     *                      The options this datepicker will have.
      *
      * @param   {String}    param.option.prevIcon
      *                      Path to the icon for datepicker prev.
