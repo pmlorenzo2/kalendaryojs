@@ -96,6 +96,8 @@
 .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection a.zavin-datepicker-item.is-active {
     color: white;
     font-weight: bold;
+
+    /* NOTE: Variable used came from Julia CSS */
     background-color: var(--primary-color);
 }
 .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-month,
