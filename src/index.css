@@ -96,9 +96,7 @@
 .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection a.zavin-datepicker-item.is-active {
     color: white;
     font-weight: bold;
-
-    /* NOTE: Variable used came from Julia CSS */
-    background-color: var(--primary-color);
+    background-color: var(--julia-primary-color);
 }
 .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-month,
 .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-year {
@@ -155,7 +153,5 @@
 .dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > tbody > tr > td > a.is-active {
     color: white;
     font-weight: bold;
-
-    /* NOTE: Variable used came from Julia CSS */
-    background-color: var(--primary-color);
+    background-color: var(--julia-primary-color);
 }
