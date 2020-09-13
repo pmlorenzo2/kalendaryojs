@@ -1,10 +1,10 @@
-# Zavin Datepicker
+# KalendaryoJS
 
 A simple and custom date picker built for Zavin apps.
 
 ## Overview
 
-Zavin Datepicker is built to address the needs of having a widget that can handle user date selection. Even though there is an input date most browsers still don't have support for it. Thus the need to create a custom date picker for our Zavin apps.
+KalendaryoJS is built to address the needs of having a widget that can handle user date selection. Even though there is an input date most browsers still don't have support for it. Thus the need to create a custom date picker for our Zavin apps.
 
 ## Installation
 
@@ -12,16 +12,16 @@ Zavin Datepicker is built to address the needs of having a widget that can handl
 
 ### 1.) Using our server's CDN
 
-Import Zavin Datepicker CSS to your HTML.
+Import KalendaryoJS CSS to your HTML.
 
 ```html
 <link rel="stylesheet" href="...">
 ```
 
-Import Zavin Datepicker JS to your script.
+Import KalendaryoJS JS to your script.
 
 ```js
-import ZavinDatepicker from "...";
+import KalendaryoJS from "...";
 ```
 
 ### 2.) Download a local copy on your machine
@@ -35,7 +35,7 @@ Coming soon...
 ```
 
 ```js
-const dateDatepicker = new ZavinDatepicker({
+const dateDatepicker = new KalendaryoJS({
     id: "date",
     label: "Date",
     pickerIcon: "YOUR_PICKER_ICON.png",
@@ -53,17 +53,17 @@ dateDatepicker.render();
 
 ## Documentation
 
-### Instantiate Zavin Datepicker
+### Instantiate KalendaryoJS
 
-This creates a new instance of Zavin Datepicker.
+This creates a new instance of KalendaryoJS.
 
 ```js
-new ZavinDatepicker(param)
+new KalendaryoJS(param)
 ```
 
 - **param** `{Object}`
 
-    This contains the parameters that will be used by Zavin Datepicker. **(Required)**
+    This contains the parameters that will be used by KalendaryoJS. **(Required)**
 
 - **param.id** `{String}`
 
@@ -99,20 +99,20 @@ new ZavinDatepicker(param)
 
 ### Method: Render
 
-Renders the instance of Zavin Datepicker.
+Renders the instance of KalendaryoJS.
 
 ```js
-const datepicker = new ZavinDatepicker(...);
+const datepicker = new KalendaryoJS(...);
 
 datepicker.render();
 ```
 
 ### Method: Set Value
 
-Sets the value of a Zavin Datepicker's instance.
+Sets the value of a KalendaryoJS's instance.
 
 ```js
-const datepicker = new ZavinDatepicker(...);
+const datepicker = new KalendaryoJS(...);
 
 datepicker.setValue(value);
 ```

@@ -1,57 +1,57 @@
 
 /**
- * Zavin Datepicker -> src -> Index CSS
+ * KalendaryoJS -> src -> Index CSS
  *
  * This contains the specific styles for Index CSS
  */
 
 
 /**
- * Zavin Datepicker
+ * KalendaryoJS
  */
 
-/* Classes for Zavin Datepicker Trigger */
-.dropdown.zavin-datepicker > .dropdown-trigger {
+/* Classes for KalendaryoJS Trigger */
+.dropdown.kalendaryojs > .dropdown-trigger {
     justify-content: space-between;             /* Justify Content (General) */
     -webkit-justify-content: space-between;     /* Justify Content support for Chrome and Safari */
     -moz-justify-content: space-between;        /* Justify Content support for Mozilla */
 }
-.dropdown.zavin-datepicker > a.dropdown-trigger {
+.dropdown.kalendaryojs > a.dropdown-trigger {
     font-weight: normal;
     text-align: left;
     height: 36px;
 }
-.dropdown.zavin-datepicker > a.dropdown-trigger,
-.dropdown.zavin-datepicker > a.dropdown-trigger:hover,
-.dropdown.zavin-datepicker > a.dropdown-trigger:active {
+.dropdown.kalendaryojs > a.dropdown-trigger,
+.dropdown.kalendaryojs > a.dropdown-trigger:hover,
+.dropdown.kalendaryojs > a.dropdown-trigger:active {
     color: var(--cheenie-dropdown-trigger-color);
 }
-.dropdown.zavin-datepicker > a.dropdown-trigger,
-.dropdown.zavin-datepicker > a.dropdown-trigger h6 {
+.dropdown.kalendaryojs > a.dropdown-trigger,
+.dropdown.kalendaryojs > a.dropdown-trigger h6 {
     font-size: 0.75rem;
 }
 
-/* Classes for Zavin Datepicker Content */
-.dropdown.zavin-datepicker > .dropdown-content {
+/* Classes for KalendaryoJS Content */
+.dropdown.kalendaryojs > .dropdown-content {
     min-width: 250px;
     padding-top: 12px;
     padding-left: 8px;
     padding-right: 8px;
     padding-bottom: 12px;
 }
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header + table.zavin-datepicker-table {
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header + table.kalendaryojs-table {
     margin-top: 12px;
 }
 
-/* Zavin Datepicker Content on screens that has a width <= 434px */
+/* KalendaryoJS Content on screens that has a width <= 434px */
 @media screen and (max-width: 434px) {
-    .dropdown.zavin-datepicker > .dropdown-content {
+    .dropdown.kalendaryojs > .dropdown-content {
         min-width: 0;
     }
 }
 
-/* Classes for Zavin Datepicker Content Header */
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header {
+/* Classes for KalendaryoJS Content Header */
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header {
     display: flex;                              /* Display Flex (General) */
     display: -webkit-flex;                      /* Display Flex support for Safari */
 
@@ -62,45 +62,45 @@
     -webkit-justify-content: space-between;     /* Justify Content support for Chrome and Safari */
     -moz-justify-content: space-between;        /* Justify Content support for Mozilla */
 }
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header .button {
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header .button {
     height: 24px;
     padding-left: 4px;
     padding-right: 4px;
 }
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header .button.zavin-datepicker-today {
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header .button.kalendaryojs-today {
     font-size: 0.75rem;
     font-weight: 400;
     text-transform: uppercase;
 }
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header > a.zavin-datepicker-period {
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header > a.kalendaryojs-period {
     padding: 2px;
     border: 1px dashed transparent;
 }
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header > a.zavin-datepicker-period:hover {
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header > a.kalendaryojs-period:hover {
     border-color: hsl(0, 0%, 50%);
 }
 
-/* Zavin Datepicker Content Header on screens that has a width <= 434px */
+/* KalendaryoJS Content Header on screens that has a width <= 434px */
 @media screen and (max-width: 434px) {
-    .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header .button:not(.zavin-datepicker-today) {
+    .dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header .button:not(.kalendaryojs-today) {
         padding-left: 0;
         padding-right: 0;
     }
-    .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header .button.zavin-datepicker-today {
+    .dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header .button.kalendaryojs-today {
         text-indent: -9999px;
         line-height: 0;
     }
-    .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header .button.zavin-datepicker-today:after {
+    .dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header .button.kalendaryojs-today:after {
         content: url(./icons/icons8-calendar/666666/16x16.png);
         text-indent: 0;
     }
-    .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-header > a.zavin-datepicker-period > h6 {
+    .dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header > a.kalendaryojs-period > h6 {
         font-size: 0.75rem;
     }
 }
 
-/* Classes for Zavin Datepicker Content Selection */
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection {
+/* Classes for KalendaryoJS Content Selection */
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection {
     display: flex;                              /* Display Flex (General) */
     display: -webkit-flex;                      /* Display Flex support for Safari */
 
@@ -112,7 +112,7 @@
     margin-right: -8px;
     margin-bottom: -12px;
 }
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection a.zavin-datepicker-item {
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection a.kalendaryojs-item {
     color: #4d4d4d;
     text-align: center;
     display: block;
@@ -121,43 +121,43 @@
     padding-right: 10px;
     padding-bottom: 6px;
 }
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection a.zavin-datepicker-item:hover {
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection a.kalendaryojs-item:hover {
     background-color: hsl(0, 0%, 80%);
 }
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection a.zavin-datepicker-item.is-active {
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection a.kalendaryojs-item.is-active {
     color: white;
     font-weight: bold;
     background-color: var(--cheenie-primary-color);
 }
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-month,
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-year {
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection > .kalendaryojs-month,
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection > .kalendaryojs-year {
     max-height: 200px;
     overflow-y: auto;
 }
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-month {
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection > .kalendaryojs-month {
     width: 60%;
 }
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-month:not(:last-child) {
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection > .kalendaryojs-month:not(:last-child) {
     border-right: 1px solid hsl(0, 0%, 80%);
 }
-.dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-year {
+.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection > .kalendaryojs-year {
     width: 40%;
 }
 
-/* Classes for Zavin Datepicker Content Table */
-.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table {
+/* Classes for KalendaryoJS Content Table */
+.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table {
     width: 100%;
 }
-.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table th,
-.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table td {
+.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table th,
+.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table td {
     padding: 4px;
 }
-.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > thead > tr > th,
-.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > tbody > tr > td {
+.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th,
+.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > tbody > tr > td {
     font-size: 0.75rem;
     text-align: center;
 }
-.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > tbody > tr > td > a {
+.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > tbody > tr > td > a {
     color: black;
     width: 24px;
     height: 24px;
@@ -174,53 +174,53 @@
 
     border-radius: 50%;
 }
-.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > tbody > tr > td > a:hover,
-.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > tbody > tr > td > a:active {
+.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > tbody > tr > td > a:hover,
+.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > tbody > tr > td > a:active {
     background-color: hsl(0, 0%, 90%);
 }
-.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > tbody > tr > td > a.is-today {
+.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > tbody > tr > td > a.is-today {
     background-color: hsl(0, 0%, 80%);
 }
-.dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > tbody > tr > td > a.is-active {
+.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > tbody > tr > td > a.is-active {
     color: white;
     font-weight: bold;
     background-color: var(--cheenie-primary-color);
 }
 
-/* Zavin Datepicker Content Table on screens that has a width <= 434px */
+/* KalendaryoJS Content Table on screens that has a width <= 434px */
 @media screen and (max-width: 434px) {
-    .dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table th,
-    .dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table td {
+    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table th,
+    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table td {
         padding: 0;
     }
-    .dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > thead > tr > th {
+    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th {
         visibility: hidden;
         line-height: 0;
     }
-    .dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > thead > tr > th:after {
+    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:after {
         display: block;
         visibility: visible;
         line-height: initial;
     }
-    .dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > thead > tr > th:nth-child(1):after {    /* Sunday Header */
+    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:nth-child(1):after {    /* Sunday Header */
         content: "Su";
     }
-    .dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > thead > tr > th:nth-child(2):after {    /* Monday Header */
+    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:nth-child(2):after {    /* Monday Header */
         content: "M";
     }
-    .dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > thead > tr > th:nth-child(3):after {    /* Tuesday Header */
+    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:nth-child(3):after {    /* Tuesday Header */
         content: "Tu";
     }
-    .dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > thead > tr > th:nth-child(4):after {    /* Wednesday Header */
+    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:nth-child(4):after {    /* Wednesday Header */
         content: "W";
     }
-    .dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > thead > tr > th:nth-child(5):after {    /* Thursday Header */
+    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:nth-child(5):after {    /* Thursday Header */
         content: "Th";
     }
-    .dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > thead > tr > th:nth-child(6):after {    /* Friday Header */
+    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:nth-child(6):after {    /* Friday Header */
         content: "F";
     }
-    .dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > thead > tr > th:nth-child(7):after {    /* Saturday Header */
+    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:nth-child(7):after {    /* Saturday Header */
         content: "Sa";
     }
 }
@@ -231,78 +231,78 @@
  */
 
 /* COLOR: Primary */
-.dropdown.zavin-datepicker.is-primary > a.dropdown-trigger {
+.dropdown.kalendaryojs.is-primary > a.dropdown-trigger {
     border-color: var(--cheenie-primary-color);
 }
-.dropdown.zavin-datepicker.is-primary > a.dropdown-trigger:hover {
+.dropdown.kalendaryojs.is-primary > a.dropdown-trigger:hover {
     border-color: var(--cheenie-primary-color-hovered);
 }
-.dropdown.zavin-datepicker.is-primary > a.dropdown-trigger:active {
+.dropdown.kalendaryojs.is-primary > a.dropdown-trigger:active {
     border-color: var(--cheenie-primary-color-active);
 }
 
 /* COLOR: Secondary */
-.dropdown.zavin-datepicker.is-secondary > a.dropdown-trigger {
+.dropdown.kalendaryojs.is-secondary > a.dropdown-trigger {
     border-color: var(--cheenie-secondary-color);
 }
-.dropdown.zavin-datepicker.is-secondary > a.dropdown-trigger:hover {
+.dropdown.kalendaryojs.is-secondary > a.dropdown-trigger:hover {
     border-color: var(--cheenie-secondary-color-hovered);
 }
-.dropdown.zavin-datepicker.is-secondary > a.dropdown-trigger:active {
+.dropdown.kalendaryojs.is-secondary > a.dropdown-trigger:active {
     border-color: var(--cheenie-secondary-color-active);
 }
 
 /* COLOR: Light */
-.dropdown.zavin-datepicker.is-light > a.dropdown-trigger {
+.dropdown.kalendaryojs.is-light > a.dropdown-trigger {
     border-color: var(--cheenie-light-color);
 }
-.dropdown.zavin-datepicker.is-light > a.dropdown-trigger:hover {
+.dropdown.kalendaryojs.is-light > a.dropdown-trigger:hover {
     border-color: var(--cheenie-light-color-hovered);
 }
-.dropdown.zavin-datepicker.is-light > a.dropdown-trigger:active {
+.dropdown.kalendaryojs.is-light > a.dropdown-trigger:active {
     border-color: var(--cheenie-light-color-active);
 }
 
 /* COLOR: Info */
-.dropdown.zavin-datepicker.is-info > a.dropdown-trigger {
+.dropdown.kalendaryojs.is-info > a.dropdown-trigger {
     border-color: var(--cheenie-info-color);
 }
-.dropdown.zavin-datepicker.is-info > a.dropdown-trigger:hover {
+.dropdown.kalendaryojs.is-info > a.dropdown-trigger:hover {
     border-color: var(--cheenie-info-color-hovered);
 }
-.dropdown.zavin-datepicker.is-info > a.dropdown-trigger:active {
+.dropdown.kalendaryojs.is-info > a.dropdown-trigger:active {
     border-color: var(--cheenie-info-color-active);
 }
 
 /* COLOR: Success */
-.dropdown.zavin-datepicker.is-success > a.dropdown-trigger {
+.dropdown.kalendaryojs.is-success > a.dropdown-trigger {
     border-color: var(--cheenie-success-color);
 }
-.dropdown.zavin-datepicker.is-success > a.dropdown-trigger:hover {
+.dropdown.kalendaryojs.is-success > a.dropdown-trigger:hover {
     border-color: var(--cheenie-success-color-hovered);
 }
-.dropdown.zavin-datepicker.is-success > a.dropdown-trigger:active {
+.dropdown.kalendaryojs.is-success > a.dropdown-trigger:active {
     border-color: var(--cheenie-success-color-active);
 }
 
 /* COLOR: Warning */
-.dropdown.zavin-datepicker.is-warning > a.dropdown-trigger {
+.dropdown.kalendaryojs.is-warning > a.dropdown-trigger {
     border-color: var(--cheenie-warning-color);
 }
-.dropdown.zavin-datepicker.is-warning > a.dropdown-trigger:hover {
+.dropdown.kalendaryojs.is-warning > a.dropdown-trigger:hover {
     border-color: var(--cheenie-warning-color-hovered);
 }
-.dropdown.zavin-datepicker.is-warning > a.dropdown-trigger:active {
+.dropdown.kalendaryojs.is-warning > a.dropdown-trigger:active {
     border-color: var(--cheenie-warning-color-active);
 }
 
 /* COLOR: Danger */
-.dropdown.zavin-datepicker.is-danger > a.dropdown-trigger {
+.dropdown.kalendaryojs.is-danger > a.dropdown-trigger {
     border-color: var(--cheenie-danger-color);
 }
-.dropdown.zavin-datepicker.is-danger > a.dropdown-trigger:hover {
+.dropdown.kalendaryojs.is-danger > a.dropdown-trigger:hover {
     border-color: var(--cheenie-danger-color-hovered);
 }
-.dropdown.zavin-datepicker.is-danger > a.dropdown-trigger:active {
+.dropdown.kalendaryojs.is-danger > a.dropdown-trigger:active {
     border-color: var(--cheenie-danger-color-active);
 }

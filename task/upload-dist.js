@@ -14,7 +14,7 @@ const del = require("del"),
 
 
 // Define constants
-const DIST_DIR = "zavin-datepicker";
+const DIST_DIR = "kalendaryojs";
 const DIST_FILE = DIST_DIR + ".tar.gz";
 const REM_DIR = "/download";
 const SRC_DIR = "src";

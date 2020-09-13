@@ -1,7 +1,7 @@
 {
-  "name": "zavin-datepicker",
+  "name": "kalendaryojs",
   "version": "1.0.0",
-  "description": "Zavin Datepicker",
+  "description": "KalendaryoJS",
   "main": "src/index.js",
   "scripts": {
     "clean.all": "rm -rf dist; rm -rf node_modules; rm -rf package-lock.json",
@@ -11,7 +11,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pmlorenzo2/zavin-datepicker.git"
+    "url": "git+https://github.com/pmlorenzo2/kalendaryojs.git"
   },
   "author": "Miguel Lorenzo <miguel@cnkdynamics.com>",
   "license": "ISC",

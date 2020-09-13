@@ -1,5 +1,5 @@
 // app.js
-import ZavinDatepicker from "../src/index.js";
+import KalendaryoJS from "../src/index.js";
 
 // Get date today
 const today = new Date();
@@ -17,7 +17,7 @@ const endDate = new Date(today.getFullYear(), today.getMonth() + 1, today.getDat
 try {
 
     // Render From Datepicker
-    const fromDatepicker = new ZavinDatepicker({
+    const fromDatepicker = new KalendaryoJS({
         id: "from",
         label: "From",
         pickerIcon: "./assets/icons/icons8-calendar-100.png",
@@ -31,7 +31,7 @@ try {
     fromDatepicker.render();
 
     // Render To Datepicker
-    const toDatepicker = new ZavinDatepicker({
+    const toDatepicker = new KalendaryoJS({
         id: "to",
         label: "To",
         pickerIcon: "./assets/icons/icons8-calendar-100.png",

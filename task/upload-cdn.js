@@ -12,7 +12,7 @@ const del = require("del"),
 
 
 // Define constants
-const DIST_DIR = "zavin-datepicker";
+const DIST_DIR = "kalendaryojs";
 const REM_DIR = "/cdn/" + DIST_DIR;
 const SRC_DIR = "src";
 
