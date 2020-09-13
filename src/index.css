@@ -24,7 +24,7 @@
 .dropdown.zavin-datepicker > a.dropdown-trigger,
 .dropdown.zavin-datepicker > a.dropdown-trigger:hover,
 .dropdown.zavin-datepicker > a.dropdown-trigger:active {
-    color: var(--julia-dropdown-trigger-color);
+    color: var(--cheenie-dropdown-trigger-color);
 }
 .dropdown.zavin-datepicker > a.dropdown-trigger,
 .dropdown.zavin-datepicker > a.dropdown-trigger h6 {
@@ -127,7 +127,7 @@
 .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection a.zavin-datepicker-item.is-active {
     color: white;
     font-weight: bold;
-    background-color: var(--julia-primary-color);
+    background-color: var(--cheenie-primary-color);
 }
 .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-month,
 .dropdown.zavin-datepicker > .dropdown-content > .zavin-datepicker-selection > .zavin-datepicker-year {
@@ -184,7 +184,7 @@
 .dropdown.zavin-datepicker > .dropdown-content > table.zavin-datepicker-table > tbody > tr > td > a.is-active {
     color: white;
     font-weight: bold;
-    background-color: var(--julia-primary-color);
+    background-color: var(--cheenie-primary-color);
 }
 
 /* Zavin Datepicker Content Table on screens that has a width <= 434px */
@@ -232,77 +232,77 @@
 
 /* COLOR: Primary */
 .dropdown.zavin-datepicker.is-primary > a.dropdown-trigger {
-    border-color: var(--julia-primary-color);
+    border-color: var(--cheenie-primary-color);
 }
 .dropdown.zavin-datepicker.is-primary > a.dropdown-trigger:hover {
-    border-color: var(--julia-primary-color-hovered);
+    border-color: var(--cheenie-primary-color-hovered);
 }
 .dropdown.zavin-datepicker.is-primary > a.dropdown-trigger:active {
-    border-color: var(--julia-primary-color-active);
+    border-color: var(--cheenie-primary-color-active);
 }
 
 /* COLOR: Secondary */
 .dropdown.zavin-datepicker.is-secondary > a.dropdown-trigger {
-    border-color: var(--julia-secondary-color);
+    border-color: var(--cheenie-secondary-color);
 }
 .dropdown.zavin-datepicker.is-secondary > a.dropdown-trigger:hover {
-    border-color: var(--julia-secondary-color-hovered);
+    border-color: var(--cheenie-secondary-color-hovered);
 }
 .dropdown.zavin-datepicker.is-secondary > a.dropdown-trigger:active {
-    border-color: var(--julia-secondary-color-active);
+    border-color: var(--cheenie-secondary-color-active);
 }
 
 /* COLOR: Light */
 .dropdown.zavin-datepicker.is-light > a.dropdown-trigger {
-    border-color: var(--julia-light-color);
+    border-color: var(--cheenie-light-color);
 }
 .dropdown.zavin-datepicker.is-light > a.dropdown-trigger:hover {
-    border-color: var(--julia-light-color-hovered);
+    border-color: var(--cheenie-light-color-hovered);
 }
 .dropdown.zavin-datepicker.is-light > a.dropdown-trigger:active {
-    border-color: var(--julia-light-color-active);
+    border-color: var(--cheenie-light-color-active);
 }
 
 /* COLOR: Info */
 .dropdown.zavin-datepicker.is-info > a.dropdown-trigger {
-    border-color: var(--julia-info-color);
+    border-color: var(--cheenie-info-color);
 }
 .dropdown.zavin-datepicker.is-info > a.dropdown-trigger:hover {
-    border-color: var(--julia-info-color-hovered);
+    border-color: var(--cheenie-info-color-hovered);
 }
 .dropdown.zavin-datepicker.is-info > a.dropdown-trigger:active {
-    border-color: var(--julia-info-color-active);
+    border-color: var(--cheenie-info-color-active);
 }
 
 /* COLOR: Success */
 .dropdown.zavin-datepicker.is-success > a.dropdown-trigger {
-    border-color: var(--julia-success-color);
+    border-color: var(--cheenie-success-color);
 }
 .dropdown.zavin-datepicker.is-success > a.dropdown-trigger:hover {
-    border-color: var(--julia-success-color-hovered);
+    border-color: var(--cheenie-success-color-hovered);
 }
 .dropdown.zavin-datepicker.is-success > a.dropdown-trigger:active {
-    border-color: var(--julia-success-color-active);
+    border-color: var(--cheenie-success-color-active);
 }
 
 /* COLOR: Warning */
 .dropdown.zavin-datepicker.is-warning > a.dropdown-trigger {
-    border-color: var(--julia-warning-color);
+    border-color: var(--cheenie-warning-color);
 }
 .dropdown.zavin-datepicker.is-warning > a.dropdown-trigger:hover {
-    border-color: var(--julia-warning-color-hovered);
+    border-color: var(--cheenie-warning-color-hovered);
 }
 .dropdown.zavin-datepicker.is-warning > a.dropdown-trigger:active {
-    border-color: var(--julia-warning-color-active);
+    border-color: var(--cheenie-warning-color-active);
 }
 
 /* COLOR: Danger */
 .dropdown.zavin-datepicker.is-danger > a.dropdown-trigger {
-    border-color: var(--julia-danger-color);
+    border-color: var(--cheenie-danger-color);
 }
 .dropdown.zavin-datepicker.is-danger > a.dropdown-trigger:hover {
-    border-color: var(--julia-danger-color-hovered);
+    border-color: var(--cheenie-danger-color-hovered);
 }
 .dropdown.zavin-datepicker.is-danger > a.dropdown-trigger:active {
-    border-color: var(--julia-danger-color-active);
+    border-color: var(--cheenie-danger-color-active);
 }

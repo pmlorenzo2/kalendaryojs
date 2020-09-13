@@ -8,7 +8,7 @@ Zavin Datepicker is built to address the needs of having a widget that can handl
 
 ## Installation
 
-**Dependency:** Julia CSS
+**Dependency:** Cheenie
 
 ### 1.) Using our server's CDN
 
