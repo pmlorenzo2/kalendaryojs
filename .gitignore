@@ -1,5 +1,7 @@
 .cache
 dist
+kalendaryojs
+kalendaryojs.tar.gz
 logs
 node_modules
 .DS_Store
