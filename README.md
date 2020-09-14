@@ -12,16 +12,16 @@ KalendaryoJS is built to address the needs of having a widget that can handle us
 
 ### 1.) Using our server's CDN
 
-Import KalendaryoJS CSS to your HTML.
+Import Kalendaryo CSS to your HTML.
 
 ```html
 <link rel="stylesheet" href="...">
 ```
 
-Import KalendaryoJS JS to your script.
+Import Kalendaryo JS to your script.
 
 ```js
-import KalendaryoJS from "...";
+import Kalendaryo from "...";
 ```
 
 ### 2.) Download a local copy on your machine
@@ -35,7 +35,7 @@ Coming soon...
 ```
 
 ```js
-const dateDatepicker = new KalendaryoJS({
+const dateDatepicker = new Kalendaryo({
     id: "date",
     label: "Date",
     pickerIcon: "YOUR_PICKER_ICON.png",
@@ -53,17 +53,17 @@ dateDatepicker.render();
 
 ## Documentation
 
-### Instantiate KalendaryoJS
+### Instantiate Kalendaryo
 
-This creates a new instance of KalendaryoJS.
+This creates a new instance of Kalendaryo.
 
 ```js
-new KalendaryoJS(param)
+new Kalendaryo(param)
 ```
 
 - **param** `{Object}`
 
-    This contains the parameters that will be used by KalendaryoJS. **(Required)**
+    This contains the parameters that will be used by Kalendaryo. **(Required)**
 
 - **param.id** `{String}`
 
@@ -99,20 +99,20 @@ new KalendaryoJS(param)
 
 ### Method: Render
 
-Renders the instance of KalendaryoJS.
+Renders the instance of Kalendaryo.
 
 ```js
-const datepicker = new KalendaryoJS(...);
+const datepicker = new Kalendaryo(...);
 
 datepicker.render();
 ```
 
 ### Method: Set Value
 
-Sets the value of a KalendaryoJS's instance.
+Sets the value of a Kalendaryo's instance.
 
 ```js
-const datepicker = new KalendaryoJS(...);
+const datepicker = new Kalendaryo(...);
 
 datepicker.setValue(value);
 ```

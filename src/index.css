@@ -7,51 +7,51 @@
 
 
 /**
- * KalendaryoJS
+ * Kalendaryo
  */
 
-/* Classes for KalendaryoJS Trigger */
-.dropdown.kalendaryojs > .dropdown-trigger {
+/* Classes for Kalendaryo Trigger */
+.dropdown.kalendaryo > .dropdown-trigger {
     justify-content: space-between;             /* Justify Content (General) */
     -webkit-justify-content: space-between;     /* Justify Content support for Chrome and Safari */
     -moz-justify-content: space-between;        /* Justify Content support for Mozilla */
 }
-.dropdown.kalendaryojs > a.dropdown-trigger {
+.dropdown.kalendaryo > a.dropdown-trigger {
     font-weight: normal;
     text-align: left;
     height: 36px;
 }
-.dropdown.kalendaryojs > a.dropdown-trigger,
-.dropdown.kalendaryojs > a.dropdown-trigger:hover,
-.dropdown.kalendaryojs > a.dropdown-trigger:active {
+.dropdown.kalendaryo > a.dropdown-trigger,
+.dropdown.kalendaryo > a.dropdown-trigger:hover,
+.dropdown.kalendaryo > a.dropdown-trigger:active {
     color: var(--cheenie-dropdown-trigger-color);
 }
-.dropdown.kalendaryojs > a.dropdown-trigger,
-.dropdown.kalendaryojs > a.dropdown-trigger h6 {
+.dropdown.kalendaryo > a.dropdown-trigger,
+.dropdown.kalendaryo > a.dropdown-trigger h6 {
     font-size: 0.75rem;
 }
 
-/* Classes for KalendaryoJS Content */
-.dropdown.kalendaryojs > .dropdown-content {
+/* Classes for Kalendaryo Content */
+.dropdown.kalendaryo > .dropdown-content {
     min-width: 250px;
     padding-top: 12px;
     padding-left: 8px;
     padding-right: 8px;
     padding-bottom: 12px;
 }
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header + table.kalendaryojs-table {
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-header + table.kalendaryo-table {
     margin-top: 12px;
 }
 
-/* KalendaryoJS Content on screens that has a width <= 434px */
+/* Kalendaryo Content on screens that has a width <= 434px */
 @media screen and (max-width: 434px) {
-    .dropdown.kalendaryojs > .dropdown-content {
+    .dropdown.kalendaryo > .dropdown-content {
         min-width: 0;
     }
 }
 
-/* Classes for KalendaryoJS Content Header */
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header {
+/* Classes for Kalendaryo Content Header */
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-header {
     display: flex;                              /* Display Flex (General) */
     display: -webkit-flex;                      /* Display Flex support for Safari */
 
@@ -62,45 +62,45 @@
     -webkit-justify-content: space-between;     /* Justify Content support for Chrome and Safari */
     -moz-justify-content: space-between;        /* Justify Content support for Mozilla */
 }
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header .button {
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-header .button {
     height: 24px;
     padding-left: 4px;
     padding-right: 4px;
 }
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header .button.kalendaryojs-today {
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-header .button.kalendaryo-today {
     font-size: 0.75rem;
     font-weight: 400;
     text-transform: uppercase;
 }
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header > a.kalendaryojs-period {
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-header > a.kalendaryo-period {
     padding: 2px;
     border: 1px dashed transparent;
 }
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header > a.kalendaryojs-period:hover {
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-header > a.kalendaryo-period:hover {
     border-color: hsl(0, 0%, 50%);
 }
 
-/* KalendaryoJS Content Header on screens that has a width <= 434px */
+/* Kalendaryo Content Header on screens that has a width <= 434px */
 @media screen and (max-width: 434px) {
-    .dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header .button:not(.kalendaryojs-today) {
+    .dropdown.kalendaryo > .dropdown-content > .kalendaryo-header .button:not(.kalendaryo-today) {
         padding-left: 0;
         padding-right: 0;
     }
-    .dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header .button.kalendaryojs-today {
+    .dropdown.kalendaryo > .dropdown-content > .kalendaryo-header .button.kalendaryo-today {
         text-indent: -9999px;
         line-height: 0;
     }
-    .dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header .button.kalendaryojs-today:after {
+    .dropdown.kalendaryo > .dropdown-content > .kalendaryo-header .button.kalendaryo-today:after {
         content: url(./icons/icons8-calendar/666666/16x16.png);
         text-indent: 0;
     }
-    .dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-header > a.kalendaryojs-period > h6 {
+    .dropdown.kalendaryo > .dropdown-content > .kalendaryo-header > a.kalendaryo-period > h6 {
         font-size: 0.75rem;
     }
 }
 
-/* Classes for KalendaryoJS Content Selection */
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection {
+/* Classes for Kalendaryo Content Selection */
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-selection {
     display: flex;                              /* Display Flex (General) */
     display: -webkit-flex;                      /* Display Flex support for Safari */
 
@@ -112,7 +112,7 @@
     margin-right: -8px;
     margin-bottom: -12px;
 }
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection a.kalendaryojs-item {
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-selection a.kalendaryo-item {
     color: #4d4d4d;
     text-align: center;
     display: block;
@@ -121,43 +121,43 @@
     padding-right: 10px;
     padding-bottom: 6px;
 }
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection a.kalendaryojs-item:hover {
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-selection a.kalendaryo-item:hover {
     background-color: hsl(0, 0%, 80%);
 }
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection a.kalendaryojs-item.is-active {
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-selection a.kalendaryo-item.is-active {
     color: white;
     font-weight: bold;
     background-color: var(--cheenie-primary-color);
 }
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection > .kalendaryojs-month,
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection > .kalendaryojs-year {
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-selection > .kalendaryo-month,
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-selection > .kalendaryo-year {
     max-height: 200px;
     overflow-y: auto;
 }
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection > .kalendaryojs-month {
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-selection > .kalendaryo-month {
     width: 60%;
 }
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection > .kalendaryojs-month:not(:last-child) {
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-selection > .kalendaryo-month:not(:last-child) {
     border-right: 1px solid hsl(0, 0%, 80%);
 }
-.dropdown.kalendaryojs > .dropdown-content > .kalendaryojs-selection > .kalendaryojs-year {
+.dropdown.kalendaryo > .dropdown-content > .kalendaryo-selection > .kalendaryo-year {
     width: 40%;
 }
 
-/* Classes for KalendaryoJS Content Table */
-.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table {
+/* Classes for Kalendaryo Content Table */
+.dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table {
     width: 100%;
 }
-.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table th,
-.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table td {
+.dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table th,
+.dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table td {
     padding: 4px;
 }
-.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th,
-.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > tbody > tr > td {
+.dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > thead > tr > th,
+.dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > tbody > tr > td {
     font-size: 0.75rem;
     text-align: center;
 }
-.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > tbody > tr > td > a {
+.dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > tbody > tr > td > a {
     color: black;
     width: 24px;
     height: 24px;
@@ -174,53 +174,53 @@
 
     border-radius: 50%;
 }
-.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > tbody > tr > td > a:hover,
-.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > tbody > tr > td > a:active {
+.dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > tbody > tr > td > a:hover,
+.dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > tbody > tr > td > a:active {
     background-color: hsl(0, 0%, 90%);
 }
-.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > tbody > tr > td > a.is-today {
+.dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > tbody > tr > td > a.is-today {
     background-color: hsl(0, 0%, 80%);
 }
-.dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > tbody > tr > td > a.is-active {
+.dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > tbody > tr > td > a.is-active {
     color: white;
     font-weight: bold;
     background-color: var(--cheenie-primary-color);
 }
 
-/* KalendaryoJS Content Table on screens that has a width <= 434px */
+/* Kalendaryo Content Table on screens that has a width <= 434px */
 @media screen and (max-width: 434px) {
-    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table th,
-    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table td {
+    .dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table th,
+    .dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table td {
         padding: 0;
     }
-    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th {
+    .dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > thead > tr > th {
         visibility: hidden;
         line-height: 0;
     }
-    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:after {
+    .dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > thead > tr > th:after {
         display: block;
         visibility: visible;
         line-height: initial;
     }
-    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:nth-child(1):after {    /* Sunday Header */
+    .dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > thead > tr > th:nth-child(1):after {    /* Sunday Header */
         content: "Su";
     }
-    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:nth-child(2):after {    /* Monday Header */
+    .dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > thead > tr > th:nth-child(2):after {    /* Monday Header */
         content: "M";
     }
-    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:nth-child(3):after {    /* Tuesday Header */
+    .dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > thead > tr > th:nth-child(3):after {    /* Tuesday Header */
         content: "Tu";
     }
-    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:nth-child(4):after {    /* Wednesday Header */
+    .dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > thead > tr > th:nth-child(4):after {    /* Wednesday Header */
         content: "W";
     }
-    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:nth-child(5):after {    /* Thursday Header */
+    .dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > thead > tr > th:nth-child(5):after {    /* Thursday Header */
         content: "Th";
     }
-    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:nth-child(6):after {    /* Friday Header */
+    .dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > thead > tr > th:nth-child(6):after {    /* Friday Header */
         content: "F";
     }
-    .dropdown.kalendaryojs > .dropdown-content > table.kalendaryojs-table > thead > tr > th:nth-child(7):after {    /* Saturday Header */
+    .dropdown.kalendaryo > .dropdown-content > table.kalendaryo-table > thead > tr > th:nth-child(7):after {    /* Saturday Header */
         content: "Sa";
     }
 }
@@ -231,78 +231,78 @@
  */
 
 /* COLOR: Primary */
-.dropdown.kalendaryojs.is-primary > a.dropdown-trigger {
+.dropdown.kalendaryo.is-primary > a.dropdown-trigger {
     border-color: var(--cheenie-primary-color);
 }
-.dropdown.kalendaryojs.is-primary > a.dropdown-trigger:hover {
+.dropdown.kalendaryo.is-primary > a.dropdown-trigger:hover {
     border-color: var(--cheenie-primary-color-hovered);
 }
-.dropdown.kalendaryojs.is-primary > a.dropdown-trigger:active {
+.dropdown.kalendaryo.is-primary > a.dropdown-trigger:active {
     border-color: var(--cheenie-primary-color-active);
 }
 
 /* COLOR: Secondary */
-.dropdown.kalendaryojs.is-secondary > a.dropdown-trigger {
+.dropdown.kalendaryo.is-secondary > a.dropdown-trigger {
     border-color: var(--cheenie-secondary-color);
 }
-.dropdown.kalendaryojs.is-secondary > a.dropdown-trigger:hover {
+.dropdown.kalendaryo.is-secondary > a.dropdown-trigger:hover {
     border-color: var(--cheenie-secondary-color-hovered);
 }
-.dropdown.kalendaryojs.is-secondary > a.dropdown-trigger:active {
+.dropdown.kalendaryo.is-secondary > a.dropdown-trigger:active {
     border-color: var(--cheenie-secondary-color-active);
 }
 
 /* COLOR: Light */
-.dropdown.kalendaryojs.is-light > a.dropdown-trigger {
+.dropdown.kalendaryo.is-light > a.dropdown-trigger {
     border-color: var(--cheenie-light-color);
 }
-.dropdown.kalendaryojs.is-light > a.dropdown-trigger:hover {
+.dropdown.kalendaryo.is-light > a.dropdown-trigger:hover {
     border-color: var(--cheenie-light-color-hovered);
 }
-.dropdown.kalendaryojs.is-light > a.dropdown-trigger:active {
+.dropdown.kalendaryo.is-light > a.dropdown-trigger:active {
     border-color: var(--cheenie-light-color-active);
 }
 
 /* COLOR: Info */
-.dropdown.kalendaryojs.is-info > a.dropdown-trigger {
+.dropdown.kalendaryo.is-info > a.dropdown-trigger {
     border-color: var(--cheenie-info-color);
 }
-.dropdown.kalendaryojs.is-info > a.dropdown-trigger:hover {
+.dropdown.kalendaryo.is-info > a.dropdown-trigger:hover {
     border-color: var(--cheenie-info-color-hovered);
 }
-.dropdown.kalendaryojs.is-info > a.dropdown-trigger:active {
+.dropdown.kalendaryo.is-info > a.dropdown-trigger:active {
     border-color: var(--cheenie-info-color-active);
 }
 
 /* COLOR: Success */
-.dropdown.kalendaryojs.is-success > a.dropdown-trigger {
+.dropdown.kalendaryo.is-success > a.dropdown-trigger {
     border-color: var(--cheenie-success-color);
 }
-.dropdown.kalendaryojs.is-success > a.dropdown-trigger:hover {
+.dropdown.kalendaryo.is-success > a.dropdown-trigger:hover {
     border-color: var(--cheenie-success-color-hovered);
 }
-.dropdown.kalendaryojs.is-success > a.dropdown-trigger:active {
+.dropdown.kalendaryo.is-success > a.dropdown-trigger:active {
     border-color: var(--cheenie-success-color-active);
 }
 
 /* COLOR: Warning */
-.dropdown.kalendaryojs.is-warning > a.dropdown-trigger {
+.dropdown.kalendaryo.is-warning > a.dropdown-trigger {
     border-color: var(--cheenie-warning-color);
 }
-.dropdown.kalendaryojs.is-warning > a.dropdown-trigger:hover {
+.dropdown.kalendaryo.is-warning > a.dropdown-trigger:hover {
     border-color: var(--cheenie-warning-color-hovered);
 }
-.dropdown.kalendaryojs.is-warning > a.dropdown-trigger:active {
+.dropdown.kalendaryo.is-warning > a.dropdown-trigger:active {
     border-color: var(--cheenie-warning-color-active);
 }
 
 /* COLOR: Danger */
-.dropdown.kalendaryojs.is-danger > a.dropdown-trigger {
+.dropdown.kalendaryo.is-danger > a.dropdown-trigger {
     border-color: var(--cheenie-danger-color);
 }
-.dropdown.kalendaryojs.is-danger > a.dropdown-trigger:hover {
+.dropdown.kalendaryo.is-danger > a.dropdown-trigger:hover {
     border-color: var(--cheenie-danger-color-hovered);
 }
-.dropdown.kalendaryojs.is-danger > a.dropdown-trigger:active {
+.dropdown.kalendaryo.is-danger > a.dropdown-trigger:active {
     border-color: var(--cheenie-danger-color-active);
 }

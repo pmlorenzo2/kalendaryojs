@@ -12,12 +12,12 @@ const selection_year_count = 10;
 
 
 /**
- * Create and customize your own KalendaryoJS using this class.
+ * Create and customize your own Kalendaryo using this class.
  */
-class KalendaryoJS {
+class Kalendaryo {
 
     /**
-     * Create instance of KalendaryoJS class.
+     * Create instance of Kalendaryo class.
      *
      * @param   {Object}    param
      *                      [REQUIRED]
@@ -51,7 +51,7 @@ class KalendaryoJS {
      *                      Set to true to make "Today" option available.
      */
     constructor(param) {
-        KalendaryoJS.validate(param);
+        Kalendaryo.validate(param);
 
         //- PROPERTY: Required
         this.id = param.id;
@@ -80,7 +80,7 @@ class KalendaryoJS {
     //- INSTANCE METHODS ---------------------------
 
     /**
-     * Render this instance of KalendaryoJS.
+     * Render this instance of Kalendaryo.
      */
     render() {
         let datepickerElement,
@@ -137,7 +137,7 @@ class KalendaryoJS {
         if (this.option && this.option.today) {
             todayOptionElement = `
                 <div class="control">
-                    <button class="button kalendaryojs-today" type="button" id="${this.id}DatepickerToday">Today</button>
+                    <button class="button kalendaryo-today" type="button" id="${this.id}DatepickerToday">Today</button>
                 </div>
             `;
         } else {
@@ -162,7 +162,7 @@ class KalendaryoJS {
 
         // Retrieve and inject datepicker code to element
         document.getElementById(this.id).innerHTML = `
-            <div class="dropdown kalendaryojs" id="${this.id}Datepicker">
+            <div class="dropdown kalendaryo" id="${this.id}Datepicker">
                 <a href="javascript:void(0)" class="dropdown-trigger" id="${this.id}DatepickerTrigger">
                     <div>
                         ${labelElement}
@@ -171,8 +171,8 @@ class KalendaryoJS {
                     ${pickerIconElement}
                 </a>
                 <div class="dropdown-content" id="${this.id}DatepickerContent">
-                    <section class="kalendaryojs-header" id="${this.id}DatepickerHeader">
-                        <a href="javascript:void(0)" class="kalendaryojs-period" id="${this.id}DatepickerPeriod">
+                    <section class="kalendaryo-header" id="${this.id}DatepickerHeader">
+                        <a href="javascript:void(0)" class="kalendaryo-period" id="${this.id}DatepickerPeriod">
                             <h6 class="has-text-weight-bold" id="${this.id}DatepickerMonthYear"></h6>
                         </a>
                         <div class="field">
@@ -183,11 +183,11 @@ class KalendaryoJS {
                             </div>
                         </div>
                     </section>
-                    <section class="kalendaryojs-selection is-hidden" id="${this.id}DatepickerSelection">
-                        <div class="kalendaryojs-month" id="${this.id}DatepickerMonth"></div>
-                        <div class="kalendaryojs-year" id="${this.id}DatepickerYear"></div>
+                    <section class="kalendaryo-selection is-hidden" id="${this.id}DatepickerSelection">
+                        <div class="kalendaryo-month" id="${this.id}DatepickerMonth"></div>
+                        <div class="kalendaryo-year" id="${this.id}DatepickerYear"></div>
                     </section>
-                    <table class="kalendaryojs-table" id="${this.id}DatepickerTable">
+                    <table class="kalendaryo-table" id="${this.id}DatepickerTable">
                         <thead>
                             <tr id="${this.id}DatepickerDaysHeader"></tr>
                         </thead>
@@ -224,14 +224,14 @@ class KalendaryoJS {
 
             // Set element as active if current iteration matches the current month
             let elementClass;
-            if (i === this.currentMonth) elementClass = "kalendaryojs-item is-active";
-            else elementClass = "kalendaryojs-item";
+            if (i === this.currentMonth) elementClass = "kalendaryo-item is-active";
+            else elementClass = "kalendaryo-item";
 
             selectionMonthElement.innerHTML += `<a href="javascript:void(0)" class="${elementClass}">${months[i]}</a>`;
         }
 
         // Update selection of Datepicker Year
-        selectionYearElement.innerHTML = `<a href="javascript:void(0)" class="kalendaryojs-item is-active">${this.currentYear}</a>`;
+        selectionYearElement.innerHTML = `<a href="javascript:void(0)" class="kalendaryo-item is-active">${this.currentYear}</a>`;
         generateYears(selection_year_count, false, selectionYearElement);
         generateYears(selection_year_count, true, selectionYearElement);
 
@@ -260,7 +260,7 @@ class KalendaryoJS {
             if (!datepickerElement.classList.contains("is-active") && !datepickerElement.classList.contains("is-disabled")) {
 
                 // Close the previously opened datepicker if any
-                const activeDatepicker = document.querySelector(".dropdown.kalendaryojs.is-active");
+                const activeDatepicker = document.querySelector(".dropdown.kalendaryo.is-active");
                 if (activeDatepicker) activeDatepicker.classList.remove("is-active");
 
                 // Display calendar again if selection month and year are shown
@@ -300,11 +300,11 @@ class KalendaryoJS {
             tableElement.classList.add("is-hidden");
 
             // Align scroll of Datepicker Month to the active month item
-            const activeSelectionMonthItem = selectionMonthElement.querySelector("a.kalendaryojs-item.is-active");
+            const activeSelectionMonthItem = selectionMonthElement.querySelector("a.kalendaryo-item.is-active");
             selectionMonthElement.scrollTop = activeSelectionMonthItem.offsetTop;
 
             // Align scroll of Datepicker Year to the active year item
-            const activeSelectionYearItem = selectionYearElement.querySelector("a.kalendaryojs-item.is-active");
+            const activeSelectionYearItem = selectionYearElement.querySelector("a.kalendaryo-item.is-active");
             selectionYearElement.scrollTop = activeSelectionYearItem.offsetTop;
         };
 
@@ -392,7 +392,7 @@ class KalendaryoJS {
                     this.currentDate = 1;
 
                     // Remove active indicator of previously selected element
-                    const activeDatepickerMonthItem = selectionMonthElement.querySelector("a.kalendaryojs-item.is-active");
+                    const activeDatepickerMonthItem = selectionMonthElement.querySelector("a.kalendaryo-item.is-active");
                     activeDatepickerMonthItem.classList.remove("is-active");
 
                     // Mark the newly selected element as active
@@ -426,7 +426,7 @@ class KalendaryoJS {
                     this.currentDate = 1;
 
                     // Remove active indicator of previously selected element
-                    const activeDatepickerYearItem = selectionYearElement.querySelector("a.kalendaryojs-item.is-active");
+                    const activeDatepickerYearItem = selectionYearElement.querySelector("a.kalendaryo-item.is-active");
                     activeDatepickerYearItem.classList.remove("is-active");
 
                     // Mark the newly selected element as active
@@ -451,7 +451,7 @@ class KalendaryoJS {
                 generateYears(selection_year_count, false, selectionYearElement);
 
                 // Align scroll to the last item scrolled at by the user
-                const datepickerYearItem = selectionYearElement.querySelector("a.kalendaryojs-item");
+                const datepickerYearItem = selectionYearElement.querySelector("a.kalendaryo-item");
                 selectionYearElement.scrollTop += (datepickerYearItem.offsetHeight * selection_year_count);
 
             } else if ((selectionYearElement.scrollTop + selectionYearElement.offsetHeight) === selectionYearElement.scrollHeight) {
@@ -517,7 +517,7 @@ class KalendaryoJS {
         const valueElement = document.getElementById(`${this.id}DatepickerValue`);
 
         // Update Datepicker Selection Year to accommodate the missing years
-        const selectionYearItems = selectionYearElement.querySelectorAll("a.kalendaryojs-item");
+        const selectionYearItems = selectionYearElement.querySelectorAll("a.kalendaryo-item");
         const firstYear = parseInt(selectionYearItems[0].textContent);
         const lastYear = parseInt(selectionYearItems[selectionYearItems.length - 1].textContent);
         if (this.currentYear < firstYear) generateYears((firstYear - this.currentYear) + selection_year_count, false, selectionYearElement);
@@ -568,7 +568,7 @@ class KalendaryoJS {
 
 
 // Expose
-export default KalendaryoJS;
+export default Kalendaryo;
 
 
 /**
@@ -581,7 +581,7 @@ export default KalendaryoJS;
 const generateYears = (count, isNext, datepickerYear) => {
 
     // Retrieve selection of years
-    const datepickerYearItems = datepickerYear.querySelectorAll("a.kalendaryojs-item");
+    const datepickerYearItems = datepickerYear.querySelectorAll("a.kalendaryo-item");
 
     // Extract year from selection
     let datepickerYearItem, year;
@@ -604,7 +604,7 @@ const generateYears = (count, isNext, datepickerYear) => {
     for (let i = 0; i < years.length; i++) {
         const anchor = document.createElement("a");
         anchor.href = "javascript:void(0)";
-        anchor.classList = "kalendaryojs-item";
+        anchor.classList = "kalendaryo-item";
         anchor.textContent = years[i];
 
         // Identify where to place the element
@@ -721,11 +721,11 @@ const generateValue = (year, month, date) => {
 const refreshSelectionMonthActive = (month, datepickerMonth) => {
 
     // Remove active indicator of previously selected month
-    const activeSelectionMonthItem = datepickerMonth.querySelector("a.kalendaryojs-item.is-active");
+    const activeSelectionMonthItem = datepickerMonth.querySelector("a.kalendaryo-item.is-active");
     activeSelectionMonthItem.classList.remove("is-active");
 
     // Loop until we find the element that matches the current month and mark it as active
-    const datepickerMonthItems = datepickerMonth.querySelectorAll("a.kalendaryojs-item");
+    const datepickerMonthItems = datepickerMonth.querySelectorAll("a.kalendaryo-item");
     for (let i = 0; i < datepickerMonthItems.length; i++) {
         const datepickerMonthItem = datepickerMonthItems[i];
         const valueMonth = months.indexOf(datepickerMonthItem.textContent);
@@ -746,11 +746,11 @@ const refreshSelectionMonthActive = (month, datepickerMonth) => {
 const refreshSelectionYearActive = (year, datepickerYear) => {
 
     // Remove active indicator of previously selected year
-    const activeSelectionYearItem = datepickerYear.querySelector("a.kalendaryojs-item.is-active");
+    const activeSelectionYearItem = datepickerYear.querySelector("a.kalendaryo-item.is-active");
     activeSelectionYearItem.classList.remove("is-active");
 
     // Loop until we find the element that matches the current year and mark it as active
-    const datepickerYearItems = datepickerYear.querySelectorAll("a.kalendaryojs-item");
+    const datepickerYearItems = datepickerYear.querySelectorAll("a.kalendaryo-item");
     for (let i = 0; i < datepickerYearItems.length; i++) {
         const datepickerYearItem = datepickerYearItems[i];
         const valueYear = parseInt(datepickerYearItem.textContent);

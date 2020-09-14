@@ -1,5 +1,5 @@
 // app.js
-import KalendaryoJS from "../src/index.js";
+import Kalendaryo from "../src/index.js";
 
 // Get date today
 const today = new Date();
@@ -17,7 +17,7 @@ const endDate = new Date(today.getFullYear(), today.getMonth() + 1, today.getDat
 try {
 
     // Render From Datepicker
-    const fromDatepicker = new KalendaryoJS({
+    const fromDatepicker = new Kalendaryo({
         id: "from",
         label: "From",
         pickerIcon: "./assets/icons/icons8-calendar-100.png",
@@ -31,7 +31,7 @@ try {
     fromDatepicker.render();
 
     // Render To Datepicker
-    const toDatepicker = new KalendaryoJS({
+    const toDatepicker = new Kalendaryo({
         id: "to",
         label: "To",
         pickerIcon: "./assets/icons/icons8-calendar-100.png",
